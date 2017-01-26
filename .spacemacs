@@ -94,6 +94,7 @@ values."
                                       ;; js2-mode
                                       ;; ac-js2
                                       dart-mode
+                                      reason-mode
                                       scss-mode
                                       flycheck
                                       flycheck-tip
@@ -401,9 +402,11 @@ layers configuration. You are free to put any user code."
           (clisp ("ros" "-Q" "-l" "~/.clisprc.lisp" "-L" "clisp" "run"))
           (cmu-bin ("ros" "-Q" "-l" "~/.cmucl-init.lisp" "-L" "cmu-bin" "run")) ;; (ql:add-to-init-file)
           (ecl  ("ros" "-Q" "-l" "~/.eclrc" "-L" "ecl" "run"))
+          ;;(ecl  ("ecl"))
           ;; (sbcl    ("sbcl" "--dynamic-space-size" "2000"))
           (roswell ("ros" "dynamic-space-size=2000" "-Q" "-l" "~/.sbclrc" "run"))))
-  (setf slime-default-lisp 'roswell) ;; Default Lisp
+  ; (setf slime-default-lisp 'roswell) ;; Default Lisp
+  (setf slime-default-lisp 'ecl) ;; Default Lisp
   (setq slime-net-coding-system 'utf-8-unix)
   (defun lisp-hook-fn ()
     (interactive)
@@ -604,6 +607,21 @@ layers configuration. You are free to put any user code."
   (setq dart-enable-analysis-server t)
   (add-hook 'dart-mode-hook 'flycheck-mode)
 
+  ;;----------------------------------------------------------------------------
+  ;; Reason setup
+  ;;----------------------------------------------------------------------------
+
+  (setq opam (substring (shell-command-to-string "opam config var prefix 2> /dev/null") 0 -1))
+  (add-to-list 'load-path (concat opam "/share/emacs/site-lisp"))
+  (setq refmt-command (concat opam "/bin/refmt"))
+
+  (require 'reason-mode)
+  (require 'merlin)
+  (setq merlin-ac-setup t)
+  (add-hook 'reason-mode-hook (lambda ()
+                                (add-hook 'before-save-hook 'refmt-before-save)
+                                (merlin-mode)))
+
   ;; Swift
   (require 'swift-mode)
   (require 'company-sourcekit)
@@ -641,4 +659,3 @@ layers configuration. You are free to put any user code."
 
 ;; Do not write anything past this comment. This is where Emacs will
 ;; auto-generate custom variable definitions.
-

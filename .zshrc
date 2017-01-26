@@ -74,7 +74,7 @@ export ANDROID_NDK=$HOME/Library/Android/sdk/ndk-bundle
 
 export PATH="$HOME/google-cloud-sdk/platform/go_appengine:$PATH"
 export PATH="$HOME/google-cloud-sdk/bin:$PATH"
-export PATH="/usr/local/Cellar/go/1.7.4_1/libexec/bin:$PATH"
+export PATH="/usr/local/Cellar/go/1.7.4_2/libexec/bin:$PATH"
 export PATH="$HOME/go_workspace/bin:$PATH"
 export PATH="$HOME/miniconda3/bin:$PATH"
 export PATH="/opt/X11/bin:$PATH"
@@ -119,3 +119,6 @@ source $ZSH/oh-my-zsh.sh
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
+
+# OPAM configuration
+. /Users/outcastgeek/.opam/opam-init/init.zsh > /dev/null 2> /dev/null || true

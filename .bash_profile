@@ -12,7 +12,7 @@ source '/usr/local/etc/bash_completion.d'
 export GOPATH=$HOME/go_workspace
 # export GOPATH=$HOME/go_workspace
 export PATH=$GOPATH/bin:$PATH
-export GOROOT=/usr/local/Cellar/go/1.7.4_1/libexec
+export GOROOT=/usr/local/Cellar/go/1.7.4_2/libexec
 export PATH=$GOROOT/bin:$PATH
 export PATH=$HOME/.local/bin:$PATH
 export PATH=$HOME/.cabal/bin:$PATH
@@ -29,16 +29,13 @@ export RUST_SRC_PATH=$HOME/.rust/src
 # Google Cloud SDK
 export GCLOUD_SDK=$HOME/google-cloud-sdk
 export PATH=$GCLOUD_SDK/bin:$PATH
-#export PYTHONPATH="$PYTHONPATH:$GCLOUD_SDK/platform/google_appengine:$GCLOUD_SDK/platform/google_appengine/lib/django-1.5"
+export PATH=$GCLOUD_SDK/platform/google_appengine
 
 # The next line updates PATH for the Google Cloud SDK.
 source '$HOME/google-cloud-sdk/path.bash.inc'
 
 # The next line enables bash completion for gcloud.
 source '$HOME/google-cloud-sdk/completion.bash.inc'
-
-# Added AppEngine "goapp" Tool
-export PATH="$HOME/google-cloud-sdk/platform/go_appengine:$PATH"
 
 # Boot2Docker
 #export DOCKER_CERT_PATH=$HOME/.boot2docker/certs/boot2docker-vm

@@ -22,16 +22,13 @@ set PATH $PATH $HOME/miniconda3/bin
 export GOPATH=$HOME/go_workspace
 # export GOPATH=$HOME/go_workspace
 set  PATH $PATH $GOPATH/bin
-export GOROOT=/usr/local/Cellar/go/1.7.4_1/libexec
+export GOROOT=/usr/local/Cellar/go/1.7.4_2/libexec
 set PATH $PATH $GOROOT/bin
 
 # Google Cloud SDK
 export GCLOUD_SDK=$HOME/google-cloud-sdk
 set PATH $PATH $GCLOUD_SDK/bin
-#export PYTHONPATH="$PYTHONPATH:$GCLOUD_SDK/platform/google_appengine:$GCLOUD_SDK/platform/google_appengine/lib/django-1.5"
-
-# Added AppEngine "goapp" Tool
-set PATH $PATH $HOME/google-cloud-sdk/platform/go_appengine
+set PATH $PATH $GCLOUD_SDK/platform/google_appengine
 
 # Boot2Docker
 #export DOCKER_CERT_PATH=$HOME/.boot2docker/certs/boot2docker-vm
