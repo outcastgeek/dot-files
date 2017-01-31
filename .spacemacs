@@ -552,7 +552,6 @@ layers configuration. You are free to put any user code."
 
   (defun my-go-mode-hook ()
     ;; Setup GOPATH
-    ;;(exec-path-from-shell-copy-env "GOPATH")
     (setenv "GOPATH"
             (concat (getenv "GOPATH")
                     ":"
@@ -572,12 +571,6 @@ layers configuration. You are free to put any user code."
     ;; Go Guru
     (load-file "$GOPATH/src/golang.org/x/tools/cmd/guru/go-guru.el")
     (go-guru-hl-identifier-mode)
-    ;; Reset GOPATH
-    ;;(setenv "GOPATH" (shell-command-to-string "$GOPATH/bin/gb env GB_PROJECT_DIR"))
-    ;; (setenv "GOPATH"
-    ;;         (concat (getenv "GOPATH")
-    ;;                 ":"
-    ;;                 (shell-command-to-string "$GOPATH/bin/gb env GB_SRC_PATH")))
     ;; Godef jump key binding (Now you can jump into code with M-. and jump back with M-*)
     (local-set-key (kbd "M-.") 'godef-jump)
     ;; Company Go
