@@ -552,7 +552,11 @@ layers configuration. You are free to put any user code."
 
   (defun my-go-mode-hook ()
     ;; Setup GOPATH
-    (exec-path-from-shell-copy-env "GOPATH")
+    ;;(exec-path-from-shell-copy-env "GOPATH")
+    (setenv "GOPATH"
+            (concat (getenv "GOPATH")
+                    ":"
+                    (shell-command-to-string "gb env GB_SRC_PATH")))
     ;; Use goimports instead of go-fmt
     (setq gofmt-command "goimports")
     ;; Call Gofmt before saving
