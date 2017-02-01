@@ -18,6 +18,7 @@ values."
    ;; of a list then all discovered layers will be installed.
    dotspacemacs-configuration-layers
    '(
+     auto-completion
      asciidoc
      asm
      autohotkey
@@ -32,7 +33,12 @@ values."
      erlang
      extra-langs
      fsharp
-     go
+     ;; Golang
+     ;; https://github.com/syl20bnr/spacemacs/tree/master/layers/%2Blang/go
+     (go :variables
+         go-use-gometalinter nil
+         gofmt-command "goimports"
+         go-tab-width 4)
      graphviz
      haskell
      html
@@ -547,36 +553,20 @@ layers configuration. You are free to put any user code."
   (setq hy-mode-inferior-lisp-command "hy")
   ;;(setq hy-mode-inferior-lisp-command "/path/to/python -i /path/to/hy-script.py")
 
-  ;; http://tleyden.github.io/blog/2014/05/22/configure-emacs-as-a-go-editor-from-scratch/
   ;; Golang
 
   (defun my-go-mode-hook ()
     ;; Setup GOPATH
+    (setq go-project-dir
+          (shell-command-to-string "gb env GB_PROJECT_DIR"))
     (setenv "GOPATH"
-            (concat (getenv "GOPATH")
-                    ":"
-                    (shell-command-to-string "gb env GB_SRC_PATH")))
-    ;; Use goimports instead of go-fmt
-    (setq gofmt-command "goimports")
-    ;; Call Gofmt before saving
-    (add-hook 'before-save-hook 'gofmt-before-save)
-    ;; Godef jump key binding
-    (local-set-key (kbd "M-.") 'godef-jump)
-    ;; Customize compile command to run go build
-    (if (not (string-match "go" compile-command))
-        (set (make-local-variable 'compile-command)
-             "go build -v && go test -v && go vet"))
-    ;; ;; Go oracle
-    ;; (load-file "$GOPATH/src/golang.org/x/tools/cmd/oracle/oracle.el")
+            (concat
+             (getenv "GOPATH") ":"
+             go-project-dir "/vendor:"
+             go-project-dir))
     ;; Go Guru
-    (load-file "$GOPATH/src/golang.org/x/tools/cmd/guru/go-guru.el")
-    (go-guru-hl-identifier-mode)
-    ;; Godef jump key binding (Now you can jump into code with M-. and jump back with M-*)
-    (local-set-key (kbd "M-.") 'godef-jump)
-    ;; Company Go
-    ;; (set (make-local-variable 'company-backends) '(company-go))
-    ;; (company-mode)
-    )
+    (go-guru-hl-identifier-mode))
+
   (add-hook 'go-mode-hook 'my-go-mode-hook)
 
   ;; Javascript
@@ -651,8 +641,7 @@ layers configuration. You are free to put any user code."
 
   ;; Org Mode
   ;; By default the list is set to ("◉" "○" "✸" "✿")
-  (setq org-bullets-bullet-list '("■" "◆" "▲" "▶"))
-  )
+  (setq org-bullets-bullet-list '("■" "◆" "▲" "▶")))
 
 ;; Do not write anything past this comment. This is where Emacs will
 ;; auto-generate custom variable definitions.
