@@ -74,7 +74,7 @@ export ANDROID_NDK=$HOME/Library/Android/sdk/ndk-bundle
 
 export PATH="$HOME/google-cloud-sdk/platform/go_appengine:$PATH"
 export PATH="$HOME/google-cloud-sdk/bin:$PATH"
-export PATH="/usr/local/Cellar/go/1.7.4_2/libexec/bin:$PATH"
+export PATH="/usr/local/Cellar/go/1.7.5/libexec/bin:$PATH"
 export PATH="$HOME/go_workspace/bin:$PATH"
 export PATH="$HOME/miniconda3/bin:$PATH"
 export PATH="/opt/X11/bin:$PATH"

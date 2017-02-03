@@ -12,7 +12,7 @@ source '/usr/local/etc/bash_completion.d'
 export GOPATH=$HOME/go_workspace
 # export GOPATH=$HOME/go_workspace
 export PATH=$GOPATH/bin:$PATH
-export GOROOT=/usr/local/Cellar/go/1.7.4_2/libexec
+export GOROOT=/usr/local/Cellar/go/1.7.5/libexec
 export PATH=$GOROOT/bin:$PATH
 export PATH=$HOME/.local/bin:$PATH
 export PATH=$HOME/.cabal/bin:$PATH
