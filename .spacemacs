@@ -33,9 +33,11 @@ values."
      erlang
      extra-langs
      fsharp
-     ;; Golang
+     ;
+; Golang
      ;; https://github.com/syl20bnr/spacemacs/tree/master/layers/%2Blang/go
-     (go :variables
+ 
+    (go :variables
          go-use-gometalinter nil
          gofmt-command "goimports"
          go-tab-width 4)
@@ -410,8 +412,10 @@ layers configuration. You are free to put any user code."
           (ecl  ("ros" "-Q" "-l" "~/.eclrc" "-L" "ecl" "run"))
           ;;(ecl  ("ecl"))
           ;; (sbcl    ("sbcl" "--dynamic-space-size" "2000"))
-          (roswell ("ros" "dynamic-space-size=2000" "-Q" "-l" "~/.sbclrc" "run"))))
-  ; (setf slime-default-lisp 'roswell) ;; Default Lisp
+          ;;(roswell ("ros" "dynamic-space-size=2000" "-Q" "-l" "~/.sbclrc" "run"))
+          (roswell ("ros" "run"))
+          ))
+  ;;(setf slime-default-lisp 'roswell) ;; Default Lisp
   (setf slime-default-lisp 'ecl) ;; Default Lisp
   (setq slime-net-coding-system 'utf-8-unix)
   (defun lisp-hook-fn ()
