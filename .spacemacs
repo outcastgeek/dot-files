@@ -415,8 +415,8 @@ layers configuration. You are free to put any user code."
           ;;(roswell ("ros" "dynamic-space-size=2000" "-Q" "-l" "~/.sbclrc" "run"))
           (roswell ("ros" "run"))
           ))
-  ;;(setf slime-default-lisp 'roswell) ;; Default Lisp
-  (setf slime-default-lisp 'ecl) ;; Default Lisp
+  (setf slime-default-lisp 'roswell) ;; Default Lisp
+  ;;(setf slime-default-lisp 'ecl) ;; Default Lisp
   (setq slime-net-coding-system 'utf-8-unix)
   (defun lisp-hook-fn ()
     (interactive)
