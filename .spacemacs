@@ -12,7 +12,8 @@ values."
    ;; or `spacemacs'. (default 'spacemacs)
    dotspacemacs-distribution 'spacemacs
    ;; List of additional paths where to look for configuration layers.
-   ;; Paths must have a trailing slash (i.e. `~/.mycontribs/')
+   ;; Paths must h;; HY CONFIGURATION
+  ;; --------------------------------------ave a trailing slash (i.e. `~/.mycontribs/')
    dotspacemacs-configuration-layer-path '()
    ;; List of configuration layers to load. If it is the symbol `all' instead
    ;; of a list then all discovered layers will be installed.
@@ -54,7 +55,11 @@ values."
      ocaml
      php
      purescript
-     python
+     (python :variables
+             python-test-runner '(pytest nose)
+             python-enable-yapf-format-on-save t
+             python-fill-column 99
+             python-sort-imports-on-save t)
      racket
      ruby
      rust
@@ -114,6 +119,8 @@ values."
                                       ;;jedi
                                       ;;anaconda-mode
                                       ;;hy-mode
+                                      cython-mode
+                                      flycheck-cython
                                       magit
                                       ;;scheme-complete
                                       ;;clojure-mode
@@ -538,6 +545,12 @@ layers configuration. You are free to put any user code."
   ;; (require 'py-autopep8)
   ;; (add-hook 'elpy-mode-hook 'py-autopep8-enable-on-save)
 
+  ;; CYTHON CONFIGURATION
+  ;; --------------------------------------
+
+  (require 'flycheck-cython)
+  (add-hook 'cython-mode-hook 'flycheck-mode)
+
   ;; HY CONFIGURATION
   ;; --------------------------------------
 
@@ -649,3 +662,17 @@ layers configuration. You are free to put any user code."
 
 ;; Do not write anything past this comment. This is where Emacs will
 ;; auto-generate custom variable definitions.
+(custom-set-variables
+ ;; custom-set-variables was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(package-selected-packages
+   (quote
+    (flycheck-cython zonokai-theme zenburn-theme zen-and-art-theme yapfify yaml-mode xterm-color x86-lookup ws-butler wolfram-mode window-numbering which-key web-mode web-beautify volatile-highlights vi-tilde-fringe uuidgen utop use-package underwater-theme ujelly-theme twilight-theme twilight-bright-theme twilight-anti-bright-theme tuareg tronesque-theme toxi-theme toml-mode toc-org tide thrift tao-theme tangotango-theme tango-plus-theme tango-2-theme tagedit swift-mode sunny-day-theme sublime-themes subatomic256-theme subatomic-theme stan-mode sql-indent spacemacs-theme spaceline spacegray-theme soothe-theme soft-stone-theme soft-morning-theme soft-charcoal-theme smyx-theme smeargle slime-company slim-mode shell-pop seti-theme scss-mode scad-mode sass-mode rvm ruby-tools ruby-test-mode rubocop rspec-mode robe reverse-theme restart-emacs rbenv rake rainbow-delimiters railscasts-theme racket-mode racer quickrun quelpa qml-mode pyvenv pytest pyenv-mode py-isort purple-haze-theme pug-mode psci psc-ide professional-theme planet-theme pip-requirements phpunit phpcbf php-extras php-auto-yasnippets phoenix-dark-pink-theme phoenix-dark-mono-theme persp-mode pastels-on-dark-theme paradox orgit organic-green-theme org-projectile org-present org-pomodoro org-plus-contrib org-download org-bullets open-junk-file omtose-phellack-theme omnisharp oldlace-theme ocp-indent occidental-theme obsidian-theme ob-elixir noflet noctilux-theme nim-mode niflheim-theme neotree nasm-mode naquadah-theme mwim mustang-theme multi-term move-text monokai-theme monochrome-theme molokai-theme moe-theme mmm-mode minitest minimal-theme merlin matlab-mode material-theme markdown-toc majapahit-theme magit-gitflow lush-theme lua-mode lorem-ipsum livid-mode live-py-mode linum-relative link-hint light-soap-theme lfe-mode less-css-mode julia-mode js2-refactor js-doc jbeans-theme jazz-theme ir-black-theme intero insert-shebang inkpot-theme info+ indent-guide ido-vertical-mode hy-mode hungry-delete htmlize hlint-refactor hl-todo hindent highlight-parentheses highlight-numbers highlight-indentation hide-comnt heroku-theme hemisu-theme help-fns+ helm-themes helm-swoop helm-pydoc helm-projectile helm-mode-manager helm-make helm-hoogle helm-gitignore helm-flx helm-descbinds helm-css-scss helm-company helm-c-yasnippet helm-ag hc-zenburn-theme haskell-snippets gruvbox-theme gruber-darker-theme groovy-mode graphviz-dot-mode grandshell-theme gradle-mode gotham-theme google-translate golden-ratio go-guru go-eldoc gnuplot glsl-mode gitconfig-mode gitattributes-mode git-timemachine git-messenger git-link git-gutter-fringe git-gutter-fringe+ gh-md geiser gandalf-theme fsharp-mode flyspell-correct-helm flymake-yaml flycheck-tip flycheck-rust flycheck-pos-tip flycheck-nim flycheck-mix flycheck-haskell flycheck-elm flx-ido flatui-theme flatland-theme fish-mode firebelly-theme fill-column-indicator farmhouse-theme fancy-battery eyebrowse expand-region exec-path-from-shell evil-visualstar evil-visual-mark-mode evil-unimpaired evil-tutor evil-surround evil-search-highlight-persist evil-numbers evil-nerd-commenter evil-mc evil-matchit evil-magit evil-lisp-state evil-indent-plus evil-iedit-state evil-exchange evil-escape evil-ediff evil-args evil-anzu espresso-theme eshell-z eshell-prompt-extras esh-help erlang ensime emmet-mode elm-mode elisp-slime-nav ein dumb-jump drupal-mode dracula-theme dockerfile-mode docker django-theme disaster diff-hl define-word dart-mode darktooth-theme darkokai-theme darkmine-theme darkburn-theme dakrone-theme d-mode cython-mode cyberpunk-theme csv-mode company-web company-tern company-statistics company-sourcekit company-shell company-go company-ghci company-ghc company-emacs-eclim company-dcd company-cabal company-c-headers company-auctex company-anaconda common-lisp-snippets column-enforce-mode color-theme-sanityinc-tomorrow color-theme-sanityinc-solarized coffee-mode cmm-mode cmake-mode clues-theme clojure-snippets clj-refactor clean-aindent-mode clang-format cider-eval-sexp-fu chruby cherry-blossom-theme cargo busybee-theme bundler bubbleberry-theme birds-of-paradise-plus-theme badwolf-theme auto-yasnippet auto-highlight-symbol auto-dictionary auto-compile arduino-mode apropospriate-theme anti-zenburn-theme ample-zen-theme ample-theme alect-themes alchemist ahk-mode aggressive-indent afternoon-theme adoc-mode adaptive-wrap ace-window ace-link ace-jump-helm-line ac-ispell))))
+(custom-set-faces
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ )
