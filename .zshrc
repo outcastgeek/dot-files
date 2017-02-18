@@ -65,6 +65,9 @@ export M2_HOME=/usr/local/Cellar/maven/3.3.9/libexec
 # Groovy
 export GROOVY_HOME=/usr/local/opt/groovy/libexec
 
+# GOROOT
+export GOROOT=/usr/local/Cellar/go/1.8/libexec
+
 # GOPATH
 export GOPATH=$HOME/go_workspace
 
@@ -81,8 +84,8 @@ export ANDROID_NDK=$HOME/Library/Android/sdk/ndk-bundle
 
 export PATH="$HOME/google-cloud-sdk/platform/go_appengine:$PATH"
 export PATH="$HOME/google-cloud-sdk/bin:$PATH"
-export PATH="/usr/local/Cellar/go/1.7.5/libexec/bin:$PATH"
-export PATH="$HOME/go_workspace/bin:$PATH"
+export PATH="$GOROOT/bin:$PATH"
+export PATH="$GOPATH/bin:$PATH"
 export PATH="$HOME/miniconda3/bin:$PATH"
 export PATH="/opt/X11/bin:$PATH"
 export PATH="/usr/local/MacGPG2/bin:$PATH"

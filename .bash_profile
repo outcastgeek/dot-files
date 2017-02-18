@@ -9,12 +9,14 @@ export GROOVY_HOME=/usr/local/opt/groovy/libexec
 # added by Miniconda3 3.5.5 installer
 export PATH="$HOME/miniconda3/bin:$PATH"
 
-# Go
 source '/usr/local/etc/bash_completion.d'
+
+# Go
 export GOPATH=$HOME/go_workspace
-# export GOPATH=$HOME/go_workspace
+export GOROOT=/usr/local/Cellar/go/1.8/libexec
+
+# exports
 export PATH=$GOPATH/bin:$PATH
-export GOROOT=/usr/local/Cellar/go/1.7.5/libexec
 export PATH=$GOROOT/bin:$PATH
 export PATH=$HOME/.local/bin:$PATH
 export PATH=$HOME/.cabal/bin:$PATH

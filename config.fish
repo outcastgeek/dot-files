@@ -23,9 +23,10 @@ set PATH $PATH $HOME/miniconda3/bin
 
 # Go
 export GOPATH=$HOME/go_workspace
-# export GOPATH=$HOME/go_workspace
+export GOROOT=/usr/local/Cellar/go/1.8/libexec
+
+# exports
 set  PATH $PATH $GOPATH/bin
-export GOROOT=/usr/local/Cellar/go/1.7.5/libexec
 set PATH $PATH $GOROOT/bin
 
 # Google Cloud SDK
