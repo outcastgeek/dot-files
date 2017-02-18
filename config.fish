@@ -14,6 +14,9 @@ export FISH_CONF=$HOME/.config/fish
 # Maven
 export M2_HOME=/usr/local/Cellar/maven/3.3.9/libexec
 
+# Groovy
+export GROOVY_HOME=/usr/local/opt/groovy/libexec
+
 # added by Miniconda3 3.5.5 installer
 source $FISH_CONF/conda.fish
 set PATH $PATH $HOME/miniconda3/bin
@@ -29,6 +32,10 @@ set PATH $PATH $GOROOT/bin
 export GCLOUD_SDK=$HOME/google-cloud-sdk
 set PATH $PATH $GCLOUD_SDK/bin
 set PATH $PATH $GCLOUD_SDK/platform/google_appengine
+
+# SQLite
+
+set PATH $PATH "/usr/local/opt/sqlite/bin"
 
 # Boot2Docker
 #export DOCKER_CERT_PATH=$HOME/.boot2docker/certs/boot2docker-vm

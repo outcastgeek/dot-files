@@ -3,6 +3,8 @@ export PATH=/usr/local/bin:$PATH
 # Maven
 export M2_HOME=/usr/local/Cellar/maven/3.3.9/libexec
 
+# Groovy
+export GROOVY_HOME=/usr/local/opt/groovy/libexec
 
 # added by Miniconda3 3.5.5 installer
 export PATH="$HOME/miniconda3/bin:$PATH"
@@ -19,6 +21,9 @@ export PATH=$HOME/.cabal/bin:$PATH
 export PATH=$HOME/.roswell/bin:$PATH
 export PATH=$HOME/.nimble/bin:$PATH
 export PATH=$HOME/.cargo/bin:$PATH
+
+# SQLite
+export PATH="/usr/local/opt/sqlite/bin:$PATH"
 
 # Dart
 export PATH=$HOME/flutter/bin:$PATH

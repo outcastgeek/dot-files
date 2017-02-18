@@ -107,7 +107,6 @@ values."
                                       ;; js2-mode
                                       ;; ac-js2
                                       dart-mode
-                                      reason-mode
                                       scss-mode
                                       flycheck
                                       flycheck-tip

@@ -62,7 +62,14 @@ export RUST_SRC_PATH=$HOME/.rust/src
 # Maven
 export M2_HOME=/usr/local/Cellar/maven/3.3.9/libexec
 
+# Groovy
+export GROOVY_HOME=/usr/local/opt/groovy/libexec
+
+# GOPATH
 export GOPATH=$HOME/go_workspace
+
+# SQLite
+export PATH="/usr/local/opt/sqlite/bin:$PATH"
 
 # Android HOME
 export ANDROID_HOME=$HOME/Library/Android/sdk
