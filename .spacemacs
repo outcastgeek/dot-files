@@ -51,6 +51,7 @@ values."
      (javascript :variables javascript-disable-tern-port-files nil)
      latex
      lua
+     crystal
      nim
      ocaml
      php
