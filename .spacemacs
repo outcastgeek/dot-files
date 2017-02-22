@@ -34,10 +34,8 @@ values."
      erlang
      extra-langs
      fsharp
-     ;
-; Golang
+     ;; Golang
      ;; https://github.com/syl20bnr/spacemacs/tree/master/layers/%2Blang/go
- 
     (go :variables
          go-use-gometalinter nil
          gofmt-command "goimports"
