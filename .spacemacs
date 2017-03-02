@@ -148,7 +148,7 @@ values."
                                       company-sourcekit
                                       quickrun
                                       ;;nim-mode
-                                      ;;flycheck-nim
+                                      flycheck-nim
                                       ;;d-mode
                                       ;;flycheck-dmd-dub
                                       ;;flycheck-d-unittest
@@ -409,19 +409,20 @@ layers configuration. You are free to put any user code."
   (setq inferior-lisp-program "ros -L sbcl -Q -l ~/.sbclrc run")
   (setf slime-lisp-implementations
         `((sbcl-bin ("ros" "-Q" "-l" "~/.sbclrc" "-L" "sbcl-bin" "run"))
-          (sbcl ("ros" "-Q" "-l" "~/.sbclrc" "-L" "sbcl" "run"))
+          ; (sbcl ("ros" "-Q" "-l" "~/.sbclrc" "-L" "sbcl" "run"))
           (abcl ("ros" "-Q" "-l" "~/.abclrc" "-L" "abcl" "run"))
           (ccl ("ros" "-Q" "-l" "~/.ccl-init.lisp" "-L" "ccl-bin" "run"))
           (clisp ("ros" "-Q" "-l" "~/.clisprc.lisp" "-L" "clisp" "run"))
           (cmu-bin ("ros" "-Q" "-l" "~/.cmucl-init.lisp" "-L" "cmu-bin" "run")) ;; (ql:add-to-init-file)
-          (ecl  ("ros" "-Q" "-l" "~/.eclrc" "-L" "ecl" "run"))
-          ;;(ecl  ("ecl"))
-          ;; (sbcl    ("sbcl" "--dynamic-space-size" "2000"))
+          ; (ecl  ("ros" "-Q" "-l" "~/.eclrc" "-L" "ecl" "run"))
+          (ecl ("ecl"))
+          (sbcl ("sbcl" "--dynamic-space-size" "2000"))
           ;;(roswell ("ros" "dynamic-space-size=2000" "-Q" "-l" "~/.sbclrc" "run"))
           (roswell ("ros" "run"))
           ))
   (setf slime-default-lisp 'roswell) ;; Default Lisp
   ;;(setf slime-default-lisp 'ecl) ;; Default Lisp
+  ;;(setf slime-default-lisp 'sbcl) ;; Default Lisp
   (setq slime-net-coding-system 'utf-8-unix)
   (defun lisp-hook-fn ()
     (interactive)
@@ -460,11 +461,10 @@ layers configuration. You are free to put any user code."
 
   ;; Nim
   ;; https://github.com/nim-lang/nim-mode
-  (setq nim-nimsuggest-path "~/.nimble/bin/nimsuggest")
-  ;; (add-to-list 'company-backends
-  ;;              '(company-nim :with company-nim-builtin))
   (require 'flycheck-nim)
-  (require 'quickrun)
+  (add-to-list 'company-backends
+               '(company-nim :with company-nim-builtin))
+  (add-to-list 'auto-indent-multiple-indent-modes 'nim-mode)
 
   ;; Rust
   ;; https://bassam.co/emacs/2015/08/24/rust-with-emacs/
