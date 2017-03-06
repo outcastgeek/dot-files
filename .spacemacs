@@ -49,7 +49,7 @@ values."
      (javascript :variables javascript-disable-tern-port-files nil)
      latex
      lua
-     crystal
+     ;;crystal
      nim
      ocaml
      php
@@ -115,8 +115,8 @@ values."
                                       ;;py-autopep8
                                       ;;ein
                                       ;;jedi
-                                      ;;anaconda-mode
-                                      ;;hy-mode
+                                      anaconda-mode
+                                      hy-mode
                                       cython-mode
                                       flycheck-cython
                                       magit
@@ -565,7 +565,7 @@ layers configuration. You are free to put any user code."
     (add-hook (intern (concat (symbol-name lisp-mode) "-mode-hook"))
               'paredit-mode))
 
-  (setq hy-mode-inferior-lisp-command "hy")
+  ;;(setq hy-mode-inferior-lisp-command "hy")
   ;;(setq hy-mode-inferior-lisp-command "/path/to/python -i /path/to/hy-script.py")
 
   ;; Golang
