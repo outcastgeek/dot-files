@@ -24,7 +24,7 @@ values."
      asm
      autohotkey
      c-c++
-     clojure
+     (clojure :variables clojure-enable-fancify-symbols t)
      common-lisp
      csharp
      csv
@@ -124,6 +124,7 @@ values."
                                       ;;clojure-mode
                                       ;;cider
                                       ;;clj-refactor
+                                      sayid
                                       ;;haskell-mode
                                       ;;stack-mode
                                       ;;purescript-mode
@@ -501,15 +502,19 @@ layers configuration. You are free to put any user code."
 
   ;; Clojure
 
+  (require 'cider)
   (setq cider-cljs-lein-repl "(do (use 'figwheel-sidecar.repl-api) (start-figwheel!) (cljs-repl))")
 
   (require 'clj-refactor)
+  (require 'icomplete)
 
   (defun my-clojure-mode-hook ()
     (clj-refactor-mode 1)
     (yas-minor-mode 1) ; for adding require/use/import statements
     ;; This choice of keybinding leaves cider-macroexpand-1 unbound
-    exec-path-from-shell-arguments    (cljr-add-keybindings-with-prefix "C-c C-m"))
+    exec-path-from-shell-arguments
+    (cljr-add-keybindings-with-prefix "C-c C-m")
+    (sayid-setup-package))
 
   (add-hook 'clojure-mode-hook #'my-clojure-mode-hook)
 
@@ -527,6 +532,13 @@ layers configuration. You are free to put any user code."
                                (cond-tpl . 'defun)))
                  (put-clojure-indent (car pair)
                                      (car (last pair))))))
+
+  (add-hook 'clojure-mode-hook #'subword-mode)
+  (add-hook 'clojure-mode-hook #'paredit-mode)
+  (add-hook 'clojure-mode-hook #'smartparens-strict-mode)
+  (add-hook 'clojure-mode-hook #'rainbow-delimiters-mode)
+  (add-hook 'clojure-mode-hook #'aggressive-indent-mode)
+  (add-hook 'cider-mode-hook #'eldoc-mode)
 
   ;; ;; PYTHON CONFIGURATION
   ;; ;; --------------------------------------
