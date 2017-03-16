@@ -423,8 +423,8 @@ layers configuration. You are free to put any user code."
           (roswell ("ros" "run"))
           ))
   ;;(setf slime-default-lisp 'roswell) ;; Default Lisp
-  (setf slime-default-lisp 'ecl) ;; Default Lisp
-  ;;(setf slime-default-lisp 'sbcl) ;; Default Lisp
+  ;;(setf slime-default-lisp 'ecl) ;; Default Lisp
+  (setf slime-default-lisp 'sbcl) ;; Default Lisp
   (setq slime-net-coding-system 'utf-8-unix)
   (defun lisp-hook-fn ()
     (interactive)
