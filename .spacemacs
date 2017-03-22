@@ -47,6 +47,7 @@ values."
      java
      ;;javascript
      (javascript :variables javascript-disable-tern-port-files nil)
+     react
      latex
      lua
      ;;crystal
@@ -59,8 +60,10 @@ values."
              python-enable-yapf-format-on-save t
              python-fill-column 99
              python-sort-imports-on-save t)
+     django
      racket
      ruby
+     ruby-on-rails
      rust
      scala
      scheme
@@ -115,10 +118,13 @@ values."
                                       ;;py-autopep8
                                       ;;ein
                                       ;;jedi
-                                      anaconda-mode
-                                      hy-mode
+                                      ;;anaconda-mode
+                                      ;;hy-mode
                                       cython-mode
                                       flycheck-cython
+                                      ;;python-django
+                                      ;;pony-mode
+                                      ;;django-html-mumamo-mode
                                       magit
                                       ;;scheme-complete
                                       ;;clojure-mode
