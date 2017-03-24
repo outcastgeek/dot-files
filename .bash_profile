@@ -15,6 +15,9 @@ source '/usr/local/etc/bash_completion.d'
 export GOPATH=$HOME/go_workspace
 export GOROOT=/usr/local/Cellar/go/1.8/libexec
 
+# Rust
+source $HOME/.cargo/env
+
 # exports
 export PATH=$GOPATH/bin:$PATH
 export PATH=$GOROOT/bin:$PATH

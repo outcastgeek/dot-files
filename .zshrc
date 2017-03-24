@@ -80,6 +80,9 @@ export ANDROID_HOME=$HOME/Library/Android/sdk
 # Android NDK
 export ANDROID_NDK=$HOME/Library/Android/sdk/ndk-bundle
 
+# Rust
+source $HOME/.cargo/env
+
 # User configuration
 
 export PATH="$HOME/google-cloud-sdk/platform/go_appengine:$PATH"

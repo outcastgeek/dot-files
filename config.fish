@@ -25,6 +25,9 @@ set PATH $PATH $HOME/miniconda3/bin
 export GOPATH=$HOME/go_workspace
 export GOROOT=/usr/local/Cellar/go/1.8/libexec
 
+# Rust
+source $HOME/.cargo/env
+
 # exports
 set  PATH $PATH $GOPATH/bin
 set PATH $PATH $GOROOT/bin
