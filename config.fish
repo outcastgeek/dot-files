@@ -25,9 +25,6 @@ set PATH $PATH $HOME/miniconda3/bin
 export GOPATH=$HOME/go_workspace
 export GOROOT=/usr/local/Cellar/go/1.8/libexec
 
-# Rust
-source $HOME/.cargo/env
-
 # exports
 set  PATH $PATH $GOPATH/bin
 set PATH $PATH $GOROOT/bin
@@ -57,15 +54,16 @@ set PATH $PATH $HOME/miniconda3/bin
 set PATH $PATH $HOME/.local/bin
 #set PATH $PATH $HOME/.cabal/bin
 set PATH $PATH $HOME/.roswell/bin
-set PATH $PATH $HOME/.nimble/bin
+# set PATH $PATH $HOME/.nimble/bin
 set PATH $PATH $HOME/.cargo/bin
 set PATH $PATH $HOME/.cache/rebar3/bin
 
 # Flutter
 set PATH $PATH $HOME/flutter/bin
 
-# Rust Source
-export RUST_SRC_PATH=$HOME/.rust/src
+# curl https://sh.rustup.rs -sSf | sh
+# rustup component add rust-src # Rust Source
+export RUST_SRC_PATH=$HOME/.rustup/toolchains/stable-x86_64-apple-darwin/lib/rustlib/src/rust
 
 # Haskell
 #set PATH $PATH $HOME/.stack/programs/x86_64-osx/ghc-7.10.3/bin
