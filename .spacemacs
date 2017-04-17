@@ -23,7 +23,9 @@ values."
      asciidoc
      asm
      autohotkey
-     c-c++
+     (c-c++ :variables
+           c-c++-default-mode-for-headers 'c++-mode
+           c-c++-enable-clang-support t)
      (clojure :variables clojure-enable-fancify-symbols t)
      common-lisp
      csharp
@@ -601,6 +603,18 @@ layers configuration. You are free to put any user code."
   ;;(setq hy-mode-inferior-lisp-command "hy")
   ;;(setq hy-mode-inferior-lisp-command "/path/to/python -i /path/to/hy-script.py")
 
+  ;; Helm Make Build Dir
+  (setq-default helm-make-build-dir "build")
+  (put 'helm-make-build-dir 'safe-local-variable 'stringp)
+
+  ;; C-C++
+  ;; Bind clang-format-region to C-M-tab in all modes:
+  (global-set-key [C-M-tab] 'clang-format-region)
+  ;; Bind clang-format-buffer to tab on the c++-mode only:
+  (add-hook 'c++-mode-hook 'clang-format-bindings)
+    (defun clang-format-bindings ()
+      (define-key c++-mode-map [tab] 'clang-format-buffer))
+
   ;; Golang
 
   (defun my-go-mode-hook ()
@@ -693,4 +707,27 @@ layers configuration. You are free to put any user code."
 
 ;; Do not write anything past this comment. This is where Emacs will
 ;; auto-generate custom variable definitions.
-
+(custom-set-variables
+ ;; custom-set-variables was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(safe-local-variable-values
+   (quote
+    ((eval setq compile-command
+           (\`
+            (format "cd %s && make"
+                    (locate-dominating-file buffer-file-name ".dir-locals.el"))))
+     (eval setq projectile-project-root
+           (locate-dominating-file buffer-file-name ".dir-locals.el"))
+     (eval setq default-directory
+           (locate-dominating-file buffer-file-name ".dir-locals.el"))
+     (helm-make-build-dir . "spikes/grilled_chicken")
+     (elixir-enable-compilation-checking . t)
+     (elixir-enable-compilation-checking)))))
+(custom-set-faces
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(default ((t (:background "#1B1D1E" :foreground "#F8F8F2")))))
