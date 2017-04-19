@@ -227,12 +227,11 @@ values."
    dotspacemacs-themes '(
                          ;; http://themegallery.robdor.com/
                          molokai
-                         default
-                         ;;zonokai-blue
-                         ;;material
-                         ;;dichromacy
-                         ;;leuven
-                         ;;lush
+                         ;; zonokai-blue
+                         ;; material
+                         dichromacy
+                         ;; leuven
+                         ;; lush
                          ;; spacemacs-dark
                          ;; spacemacs-light
                          )
@@ -707,27 +706,3 @@ layers configuration. You are free to put any user code."
 
 ;; Do not write anything past this comment. This is where Emacs will
 ;; auto-generate custom variable definitions.
-(custom-set-variables
- ;; custom-set-variables was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- '(safe-local-variable-values
-   (quote
-    ((eval setq compile-command
-           (\`
-            (format "cd %s && make"
-                    (locate-dominating-file buffer-file-name ".dir-locals.el"))))
-     (eval setq projectile-project-root
-           (locate-dominating-file buffer-file-name ".dir-locals.el"))
-     (eval setq default-directory
-           (locate-dominating-file buffer-file-name ".dir-locals.el"))
-     (helm-make-build-dir . "spikes/grilled_chicken")
-     (elixir-enable-compilation-checking . t)
-     (elixir-enable-compilation-checking)))))
-(custom-set-faces
- ;; custom-set-faces was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- '(default ((t (:background "#1B1D1E" :foreground "#F8F8F2")))))
