@@ -44,6 +44,7 @@ values."
          go-tab-width 4)
      graphviz
      haskell
+     idris
      html
      ipython-notebook
      java
@@ -226,6 +227,7 @@ values."
    ;; with 2 themes variants, one dark and one light)
    dotspacemacs-themes '(
                          ;; http://themegallery.robdor.com/
+                         apropospriate-light
                          molokai
                          ;; zonokai-blue
                          ;; material
@@ -706,3 +708,24 @@ layers configuration. You are free to put any user code."
 
 ;; Do not write anything past this comment. This is where Emacs will
 ;; auto-generate custom variable definitions.
+(custom-set-variables
+ ;; custom-set-variables was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(safe-local-variable-values
+   (quote
+    ((eval setq compile-command
+           (\`
+            (format "cd %s && make"
+                    (locate-dominating-file buffer-file-name ".dir-locals.el"))))
+     (eval setq projectile-project-root
+           (locate-dominating-file buffer-file-name ".dir-locals.el"))
+     (elixir-enable-compilation-checking . t)
+     (elixir-enable-compilation-checking)))))
+(custom-set-faces
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ )
