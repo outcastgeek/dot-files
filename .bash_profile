@@ -13,7 +13,7 @@ source '/usr/local/etc/bash_completion.d'
 
 # Go
 export GOPATH=$HOME/go_workspace
-export GOROOT=/usr/local/Cellar/go/1.8/libexec
+export GOROOT=/usr/local/Cellar/go/1.8.1/libexec
 
 # Rust
 source $HOME/.cargo/env

@@ -23,7 +23,7 @@ set PATH $PATH $HOME/miniconda3/bin
 
 # Go
 export GOPATH=$HOME/go_workspace
-export GOROOT=/usr/local/Cellar/go/1.8/libexec
+export GOROOT=/usr/local/Cellar/go/1.8.1/libexec
 
 # exports
 set  PATH $PATH $GOPATH/bin
