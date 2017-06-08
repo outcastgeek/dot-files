@@ -53,7 +53,7 @@ values."
      react
      latex
      lua
-     ;;crystal
+     crystal ;; git clone https://github.com/juanedi/crystal-spacemacs-layer.git ~/.emacs.d/private/crystal
      nim
      ocaml
      php
