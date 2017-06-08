@@ -53,7 +53,7 @@ values."
      react
      latex
      lua
-     crystal ;; git clone https://github.com/juanedi/crystal-spacemacs-layer.git ~/.emacs.d/private/crystal
+     ;;crystal ;; git clone https://github.com/juanedi/crystal-spacemacs-layer.git ~/.emacs.d/private/crystal
      nim
      ocaml
      php
@@ -79,6 +79,9 @@ values."
                  typescript-fmt-on-save t
                  typescript-fmt-tool 'typescript-formatter)
      yaml
+     ;; DevOps
+     docker
+     terraform
      ;; ----------------------------------------------------------------
      ;; Example of useful layers you may want 173.194.238.170to use right away.
      ;; Uncomment some layer names and press <SPC f e R>173.194.238.170 (Vim style) or
@@ -159,7 +162,7 @@ values."
                                       company-sourcekit
                                       quickrun
                                       ;;nim-mode
-                                      flycheck-nim
+                                      ;;flycheck-nim
                                       ;;d-mode
                                       ;;flycheck-dmd-dub
                                       ;;flycheck-d-unittest
@@ -168,9 +171,6 @@ values."
                                       groovy-mode
                                       gradle-mode
                                       yasnippet
-                                      ;; http://domeide.github.io/
-                                      docker
-                                      dockerfile-mode
                                       ;;shen-mode
                                       (shen-elisp
                                         :location (recipe :repo "deech/shen-elisp"
@@ -733,45 +733,6 @@ layers configuration. You are free to put any user code."
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(ansi-color-names-vector
-   ["#FAFAFA" "#FF1744" "#66BB6A" "#F57F17" "#42A5F5" "#7E57C2" "#0097A7" "#546E7A"])
- '(beacon-color "#F8BBD0")
- '(evil-emacs-state-cursor (quote ("#D50000" hbar)) t)
- '(evil-insert-state-cursor (quote ("#D50000" bar)) t)
- '(evil-normal-state-cursor (quote ("#F57F17" box)) t)
- '(evil-visual-state-cursor (quote ("#66BB6A" box)) t)
- '(evil-want-Y-yank-to-eol t)
- '(highlight-indent-guides-auto-enabled nil)
- '(highlight-symbol-colors
-   (quote
-    ("#F57F17" "#66BB6A" "#0097A7" "#42A5F5" "#7E57C2" "#D84315")))
- '(highlight-symbol-foreground-color "#546E7A")
- '(highlight-tail-colors (quote (("#F8BBD0" . 0) ("#FAFAFA" . 100))))
- '(package-selected-packages
-   (quote
-    (quack zonokai-theme zenburn-theme zen-and-art-theme yapfify yaml-mode xterm-color x86-lookup ws-butler wolfram-mode winum which-key web-mode web-beautify volatile-highlights vi-tilde-fringe uuidgen utop use-package unfill underwater-theme ujelly-theme twilight-theme twilight-bright-theme twilight-anti-bright-theme tuareg tronesque-theme toxi-theme toml-mode toc-org tide thrift tao-theme tangotango-theme tango-plus-theme tango-2-theme tagedit swift-mode sunny-day-theme sublime-themes subatomic256-theme subatomic-theme stan-mode sql-indent spaceline spacegray-theme soothe-theme solarized-theme soft-stone-theme soft-morning-theme soft-charcoal-theme smyx-theme smeargle slime-company slim-mode shen-elisp shell-pop seti-theme scss-mode scad-mode sayid sass-mode rvm ruby-tools ruby-test-mode rubocop rspec-mode robe reverse-theme restart-emacs rbenv rainbow-delimiters railscasts-theme racket-mode racer quickrun qml-mode pyvenv pytest pyenv-mode py-isort purple-haze-theme pug-mode psci psc-ide projectile-rails professional-theme pony-mode planet-theme pip-requirements phpunit phpcbf php-extras php-auto-yasnippets phoenix-dark-pink-theme phoenix-dark-mono-theme persp-mode pastels-on-dark-theme paradox orgit organic-green-theme org-projectile org-present org-pomodoro org-plus-contrib org-download org-bullets open-junk-file omtose-phellack-theme omnisharp oldlace-theme ocp-indent occidental-theme obsidian-theme ob-elixir noflet noctilux-theme nim-mode niflheim-theme neotree nasm-mode naquadah-theme mwim mustang-theme multi-term move-text monokai-theme monochrome-theme molokai-theme moe-theme mmm-mode minitest minimal-theme merlin matlab-mode material-theme markdown-toc majapahit-theme magit-gitflow madhat2r-theme lush-theme lua-mode lorem-ipsum livid-mode live-py-mode linum-relative link-hint light-soap-theme lfe-mode less-css-mode julia-mode js2-refactor js-doc jbeans-theme jazz-theme ir-black-theme intero insert-shebang inkpot-theme info+ indent-guide idris-mode hy-mode hungry-delete htmlize hlint-refactor hl-todo hindent highlight-parentheses highlight-numbers highlight-indentation hide-comnt heroku-theme hemisu-theme help-fns+ helm-themes helm-swoop helm-pydoc helm-projectile helm-mode-manager helm-make helm-hoogle helm-gitignore helm-flx helm-descbinds helm-css-scss helm-company helm-c-yasnippet helm-ag hc-zenburn-theme haskell-snippets gruvbox-theme gruber-darker-theme groovy-mode graphviz-dot-mode grandshell-theme gradle-mode gotham-theme google-translate golden-ratio go-guru go-eldoc gnuplot glsl-mode gitconfig-mode gitattributes-mode git-timemachine git-messenger git-link git-gutter-fringe git-gutter-fringe+ gh-md geiser gandalf-theme fuzzy fsharp-mode flyspell-correct-helm flymake-yaml flycheck-tip flycheck-rust flycheck-pos-tip flycheck-nim flycheck-mix flycheck-haskell flycheck-elm flycheck-cython flycheck-credo flx-ido flatui-theme flatland-theme fish-mode firebelly-theme fill-column-indicator feature-mode farmhouse-theme fancy-battery eyebrowse expand-region exec-path-from-shell evil-visualstar evil-visual-mark-mode evil-unimpaired evil-tutor evil-surround evil-search-highlight-persist evil-numbers evil-nerd-commenter evil-mc evil-matchit evil-magit evil-lisp-state evil-indent-plus evil-iedit-state evil-exchange evil-escape evil-ediff evil-args evil-anzu espresso-theme eshell-z eshell-prompt-extras esh-help erlang ensime emmet-mode elm-mode elisp-slime-nav ein dumb-jump drupal-mode dracula-theme dockerfile-mode docker django-theme disaster diff-hl define-word dart-mode darktooth-theme darkokai-theme darkmine-theme darkburn-theme dakrone-theme d-mode cython-mode cyberpunk-theme csv-mode company-web company-tern company-statistics company-sourcekit company-shell company-go company-ghci company-ghc company-emacs-eclim company-dcd company-cabal company-c-headers company-auctex company-anaconda common-lisp-snippets column-enforce-mode color-theme-sanityinc-tomorrow color-theme-sanityinc-solarized coffee-mode cmm-mode cmake-mode clues-theme clojure-snippets clj-refactor clean-aindent-mode clang-format cider-eval-sexp-fu chruby cherry-blossom-theme cargo busybee-theme bundler bubbleberry-theme birds-of-paradise-plus-theme badwolf-theme auto-yasnippet auto-highlight-symbol auto-dictionary auto-compile arduino-mode apropospriate-theme anti-zenburn-theme ample-zen-theme ample-theme alect-themes alchemist ahk-mode aggressive-indent afternoon-theme adoc-mode adaptive-wrap ace-window ace-link ace-jump-helm-line ac-ispell)))
- '(pos-tip-background-color "#ffffff")
- '(pos-tip-foreground-color "#78909C")
- '(psc-ide-add-import-on-completion t t)
- '(psc-ide-rebuild-on-save nil t)
- '(quack-programs
-   (quote
-    ("gsi -:d-" "bigloo" "csi" "csi -hygienic" "gosh" "gracket" "gsi" "gsi ~~/syntax-case.scm -" "guile" "kawa" "mit-scheme" "racket" "racket -il typed/racket" "rs" "scheme" "scheme48" "scsh" "sisc" "stklos" "sxi")))
- '(safe-local-variable-values
-   (quote
-    ((eval setq hy-mode-inferior-lisp-command
-           (concat pyhome "/bin/hy"))
-     (eval pythonic-activate pyhome)
-     (eval setq pyhome "~/miniconda3/envs/PCIENV")
-     (eval setq compile-command
-           (\`
-            (format "cd %s && make"
-                    (locate-dominating-file buffer-file-name ".dir-locals.el"))))
-     (eval setq projectile-project-root
-           (locate-dominating-file buffer-file-name ".dir-locals.el"))
-     (elixir-enable-compilation-checking . t)
-     (elixir-enable-compilation-checking))))
- '(tabbar-background-color "#ffffff"))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
