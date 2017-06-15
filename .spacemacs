@@ -43,7 +43,10 @@ values."
          gofmt-command "goimports"
          go-tab-width 4)
      graphviz
-     haskell
+     (haskell :variables
+              haskell-completion-backend 'intero
+              haskell-enable-hindent-style "johan-tibell"
+              haskell-process-type 'stack-ghci)
      idris
      html
      ipython-notebook
@@ -112,62 +115,20 @@ values."
                                       rainbow-delimiters
                                       slime
                                       slime-company
-                                      ;; emmet-mode
-                                      ;; js2-mode
-                                      ;; ac-js2
                                       dart-mode
                                       scss-mode
                                       flycheck
                                       flycheck-tip
                                       yaml-mode
                                       flymake-yaml
-                                      ;;elpy
-                                      ;;py-autopep8
-                                      ;;ein
-                                      ;;jedi
-                                      ;;anaconda-mode
-                                      ;;hy-mode
                                       cython-mode
                                       flycheck-cython
-                                      ;;python-django
-                                      ;;pony-mode
-                                      ;;django-html-mumamo-mode
                                       magit
-                                      ;;scheme-complete
-                                      ;;clojure-mode
-                                      ;;cider
-                                      ;;clj-refactor
+                                      inf-clojure
                                       sayid
-                                      ;;haskell-mode
-                                      ;;stack-mode
-                                      ;;purescript-mode
-                                      ;;psci
-                                      ;;elm-mode
-                                      ;;erlang
-                                      ;;flycheck-dialyzer
                                       lfe-mode
-                                      ;;alchemist
-                                      ;;go-mode
-                                      ;;go-complete
-                                      ;company-go
-                                      ;;go-autocomplete
-                                      ;go-projectile
-                                      ;;rust-mode
-                                      ;;flycheck-rust
-                                      ;;cargo
-                                      ;;racer
-                                      ;;toml-mode
-                                      ;;company-racer
-                                      ;;swift-mode
                                       company-sourcekit
                                       quickrun
-                                      ;;nim-mode
-                                      ;;flycheck-nim
-                                      ;;d-mode
-                                      ;;flycheck-dmd-dub
-                                      ;;flycheck-d-unittest
-                                      ;;cmake-ide
-                                      ;;cmake-mode
                                       groovy-mode
                                       gradle-mode
                                       yasnippet
@@ -510,36 +471,15 @@ layers configuration. You are free to put any user code."
   (add-to-list 'company-backends
                '(company-nim :with company-nim-builtin))
   (add-to-list 'auto-indent-multiple-indent-modes 'nim-mode)
-
-  ;; Rust
-  ;; https://bassam.co/emacs/2015/08/24/rust-with-emacs/
-  ;; https://github.com/phildawes/racer
-  ;; https://github.com/racer-rust/emacs-racer
-  (setq racer-cmd "~/.cargo/bin/racer")
-  ;(setq racer-rust-src-path "~/.rust/src/")
-  (add-hook 'rust-mode-hook #'racer-mode)
-  (add-hook 'racer-mode-hook #'eldoc-mode)
+  
   (add-hook 'racer-mode-hook #'company-mode)
-  ;(define-key rust-mode-map (kbd "TAB") #'company-indent-or-complete-common)
   (setq company-tooltip-align-annotations t)
 
   ;; Haskell
-
-  (add-hook 'haskell-mode-hook 'company-mode)
-  ;(add-to-list 'company-backends 'company-ghc)
-  (custom-set-variables '(company-ghc-show-info t))
-  (add-hook 'haskell-mode-hook (lambda () (ghc-init) (hare-init)))
-  (add-hook 'haskell-mode-hook 'structured-haskell-mode)
   (add-hook 'haskell-mode-hook #'rainbow-delimiters-mode)
-  (add-hook 'haskell-mode-hook 'subword-mode)
-  (add-hook 'haskell-mode-hook 'stack-mode)
-
-  ;; enable purescript smart indentation and purscheck whenever a
-  ;; purescript file is loaded into emacs
-  (add-hook 'purescript-mode-hook 'turn-on-purescript-indentation)
-  (add-hook 'purescript-mode-hook 'flycheck-mode)
-  (add-hook 'purescript-mode-hook 'inferior-psci-mode)
-
+  (add-hook 'haskell-interactive-mode-hook
+            (lambda ()
+              (setq-local evil-move-cursor-back nil)))
   (add-hook 'elm-mode-hook
             (lambda ()
               (setq company-backends '(company-elm))))
@@ -549,8 +489,8 @@ layers configuration. You are free to put any user code."
   (require 'cider)
   (setq cider-cljs-lein-repl "(do (use 'figwheel-sidecar.repl-api) (start-figwheel!) (cljs-repl))")
 
-  (require 'clj-refactor)
-  (require 'icomplete)
+  ;;(require 'clj-refactor)
+  ;;(require 'icomplete)
 
   (defun my-clojure-mode-hook ()
     (clj-refactor-mode 1)
@@ -561,6 +501,9 @@ layers configuration. You are free to put any user code."
     (sayid-setup-package))
 
   (add-hook 'clojure-mode-hook #'my-clojure-mode-hook)
+
+  (add-hook 'clojure-mode-hook #'eldoc-mode)
+  (add-hook 'inf-clojure-mode-hook #'eldoc-mode)
 
   ;;;; Clojurescript
   (add-to-list 'auto-mode-alist '("\\.cljs\\.hl\\'" . clojurescript-mode))
@@ -583,21 +526,6 @@ layers configuration. You are free to put any user code."
   (add-hook 'clojure-mode-hook #'rainbow-delimiters-mode)
   (add-hook 'clojure-mode-hook #'aggressive-indent-mode)
   (add-hook 'cider-mode-hook #'eldoc-mode)
-
-  ;; ;; PYTHON CONFIGURATION
-  ;; ;; --------------------------------------
-
-  ;; (elpy-enable)
-  ;; ;(elpy-use-ipython)
-
-  ;; ;; use flycheck not flymake with elpy
-  ;; (when (require 'flycheck nil t)
-  ;;   (setq elpy-modules (delq 'elpy-module-flymake elpy-modules))
-  ;;   (add-hook 'elpy-mode-hook 'flycheck-mode))
-
-  ;; ;; enable autopep8 formatting on save
-  ;; (require 'py-autopep8)
-  ;; (add-hook 'elpy-mode-hook 'py-autopep8-enable-on-save)
 
   ;; CYTHON CONFIGURATION
   ;; --------------------------------------
@@ -695,27 +623,6 @@ layers configuration. You are free to put any user code."
   ;; Swift
   (require 'swift-mode)
   (require 'company-sourcekit)
-
-  ;; Erlang
-
-  (require 'flycheck)
-
-  ;; (flycheck-define-checker erlang-otp
-  ;;   "An Erlang syntax checker using the Erlang interpreter."
-  ;;   :command ("erlc" "-o" temporary-directory "-Wall"
-  ;;             "-I" "../include" "-I" "../../include"
-  ;;             "-I" "../../../include" source)
-  ;;   :error-patterns
-  ;;   ((warning line-start (file-name) ":" line ": Warning:" (message) line-end)
-  ;;    (error line-start (file-name) ":" line ": " (message) line-end)))
-
-  (add-hook 'erlang-mode-hook
-            (lambda ()
-              (flycheck-select-checker 'erlang-otp)
-              (flycheck-mode)))
-
-  ;; Elixir
-  (add-hook 'alchemist-mode-hook 'company-mode)
 
   ;; Docker
   ;; https://github.com/Silex/docker.el
