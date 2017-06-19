@@ -53,6 +53,9 @@ ZSH_THEME="robbyrussell"
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(git)
 
+# Mono
+export PATH=/Library/Frameworks/Mono.framework/Versions/Current/bin/:$PATH
+
 # Dart
 export PATH=$HOME/flutter/bin:$PATH
 
@@ -66,7 +69,7 @@ export M2_HOME=/usr/local/Cellar/maven/3.3.9/libexec
 export GROOVY_HOME=/usr/local/opt/groovy/libexec
 
 # GOROOT
-export GOROOT=/usr/local/Cellar/go/1.8.1/libexec
+export GOROOT=/usr/local/Cellar/go/1.8.3/libexec
 
 # GOPATH
 export GOPATH=$HOME/go_workspace
@@ -100,6 +103,7 @@ export PATH="$HOME/.roswell/bin:$PATH"
 export PATH="$HOME/.nimble/bin:$PATH"
 export PATH="$HOME/.cargo/bin:$PATH"
 export PATH="$HOME/.cache/rebar3/bin:$PATH"
+export PATH="$HOME/.opam/system/bin:$PATH"
 # export MANPATH="/usr/local/man:$MANPATH"
 
 source $ZSH/oh-my-zsh.sh

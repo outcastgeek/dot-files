@@ -21,9 +21,12 @@ export GROOVY_HOME=/usr/local/opt/groovy/libexec
 source $FISH_CONF/conda.fish
 set PATH $PATH $HOME/miniconda3/bin
 
+# Mono
+set PATH $PATH /Library/Frameworks/Mono.framework/Versions/Current/bin
+
 # Go
 export GOPATH=$HOME/go_workspace
-export GOROOT=/usr/local/Cellar/go/1.8.1/libexec
+export GOROOT=/usr/local/Cellar/go/1.8.3/libexec
 
 # exports
 set  PATH $PATH $GOPATH/bin
@@ -57,6 +60,9 @@ set PATH $PATH $HOME/.roswell/bin
 # set PATH $PATH $HOME/.nimble/bin
 set PATH $PATH $HOME/.cargo/bin
 set PATH $PATH $HOME/.cache/rebar3/bin
+
+# OCaml
+set PATH $PATH $HOME/.opam/system/bin
 
 # Flutter
 set PATH $PATH $HOME/flutter/bin
