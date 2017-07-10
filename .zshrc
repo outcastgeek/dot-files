@@ -60,7 +60,7 @@ export PATH=/Library/Frameworks/Mono.framework/Versions/Current/bin/:$PATH
 export PATH=$HOME/flutter/bin:$PATH
 
 # Rust Source
-export RUST_SRC_PATH=$HOME/.rust/src
+export RUST_SRC_PATH=$HOME/.rustup/toolchains/stable-x86_64-apple-darwin/lib/rustlib/src/rust/src
 
 # Maven
 export M2_HOME=/usr/local/Cellar/maven/3.3.9/libexec
@@ -139,3 +139,10 @@ source $ZSH/oh-my-zsh.sh
 
 # OPAM configuration
 . /Users/outcastgeek/.opam/opam-init/init.zsh > /dev/null 2> /dev/null || true
+
+# tabtab source for serverless package
+# uninstall by removing these lines or running `tabtab uninstall serverless`
+[[ -f /Users/outcastgeek/.config/yarn/global/node_modules/tabtab/.completions/serverless.zsh ]] && . /Users/outcastgeek/.config/yarn/global/node_modules/tabtab/.completions/serverless.zsh
+# tabtab source for sls package
+# uninstall by removing these lines or running `tabtab uninstall sls`
+[[ -f /Users/outcastgeek/.config/yarn/global/node_modules/tabtab/.completions/sls.zsh ]] && . /Users/outcastgeek/.config/yarn/global/node_modules/tabtab/.completions/sls.zsh

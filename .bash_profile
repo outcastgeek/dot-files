@@ -35,7 +35,7 @@ export PATH="/usr/local/opt/sqlite/bin:$PATH"
 export PATH=$HOME/flutter/bin:$PATH
 
 # Rust Source
-export RUST_SRC_PATH=$HOME/.rust/src
+export RUST_SRC_PATH=$HOME/.rustup/toolchains/stable-x86_64-apple-darwin/lib/rustlib/src/rust/src
 
 # Google Cloud SDK
 export GCLOUD_SDK=$HOME/google-cloud-sdk

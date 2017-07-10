@@ -465,13 +465,16 @@ layers configuration. You are free to put any user code."
   ;; turn on global auto highlight symbol mode
   (global-auto-highlight-symbol-mode t)
 
+  ;; Rust
+  (setq racer-rust-src-path (getenv "RUST_SRC_PATH"))
+
   ;; Nim
   ;; https://github.com/nim-lang/nim-mode
   (require 'flycheck-nim)
   (add-to-list 'company-backends
                '(company-nim :with company-nim-builtin))
   (add-to-list 'auto-indent-multiple-indent-modes 'nim-mode)
-  
+
   (add-hook 'racer-mode-hook #'company-mode)
   (setq company-tooltip-align-annotations t)
 
