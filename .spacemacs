@@ -39,7 +39,7 @@ values."
      ;; Golang
      ;; https://github.com/syl20bnr/spacemacs/tree/master/layers/%2Blang/go
     (go :variables
-         go-use-gometalinter nil
+         go-use-gometalinter t
          gofmt-command "goimports"
          go-tab-width 4)
      graphviz
@@ -195,6 +195,7 @@ values."
    ;; with 2 themes variants, one dark and one light)
    dotspacemacs-themes '(
                          ;; http://themegallery.robdor.com/
+                         wombat
                          apropospriate-light
                          molokai
                          ;; zonokai-blue
@@ -416,19 +417,21 @@ layers configuration. You are free to put any user code."
   (setf slime-lisp-implementations
         `((sbcl-bin ("ros" "-Q" "-l" "~/.sbclrc" "-L" "sbcl-bin" "run"))
           ; (sbcl ("ros" "-Q" "-l" "~/.sbclrc" "-L" "sbcl" "run"))
-          (abcl ("ros" "-Q" "-l" "~/.abclrc" "-L" "abcl" "run"))
+          (abcl-bin ("ros" "-Q" "-l" "~/.abclrc" "-L" "abcl" "run"))
           (ccl ("ros" "-Q" "-l" "~/.ccl-init.lisp" "-L" "ccl-bin" "run"))
           (clisp ("ros" "-Q" "-l" "~/.clisprc.lisp" "-L" "clisp" "run"))
           (cmu-bin ("ros" "-Q" "-l" "~/.cmucl-init.lisp" "-L" "cmu-bin" "run")) ;; (ql:add-to-init-file)
           ; (ecl  ("ros" "-Q" "-l" "~/.eclrc" "-L" "ecl" "run"))
           (ecl ("ecl"))
           (sbcl ("sbcl" "--dynamic-space-size" "2000"))
+          (abcl ("abcl" "--dynamic-space-size" "2000"))
           ;;(roswell ("ros" "dynamic-space-size=2000" "-Q" "-l" "~/.sbclrc" "run"))
           (roswell ("ros" "run"))
           ))
   ;;(setf slime-default-lisp 'roswell) ;; Default Lisp
   ;;(setf slime-default-lisp 'ecl) ;; Default Lisp
   (setf slime-default-lisp 'sbcl) ;; Default Lisp
+  ;;(setf slime-default-lisp 'abcl) ;; Default Lisp
   (setq slime-net-coding-system 'utf-8-unix)
   (defun lisp-hook-fn ()
     (interactive)
@@ -465,9 +468,6 @@ layers configuration. You are free to put any user code."
   ;; turn on global auto highlight symbol mode
   (global-auto-highlight-symbol-mode t)
 
-  ;; Rust
-  (setq racer-rust-src-path (getenv "RUST_SRC_PATH"))
-
   ;; Nim
   ;; https://github.com/nim-lang/nim-mode
   (require 'flycheck-nim)
@@ -488,9 +488,6 @@ layers configuration. You are free to put any user code."
               (setq company-backends '(company-elm))))
 
   ;; Clojure
-
-  (require 'cider)
-  (setq cider-cljs-lein-repl "(do (use 'figwheel-sidecar.repl-api) (start-figwheel!) (cljs-repl))")
 
   ;;(require 'clj-refactor)
   ;;(require 'icomplete)
@@ -522,6 +519,13 @@ layers configuration. You are free to put any user code."
                                (cond-tpl . 'defun)))
                  (put-clojure-indent (car pair)
                                      (car (last pair))))))
+
+  (require 'cider)
+;;  (setq cider-cljs-lein-repl "(do (use 'figwheel-sidecar.repl-api) (start-figwheel!) (cljs-repl))")
+  (setq cider-cljs-lein-repl
+      "(do (require 'figwheel-sidecar.repl-api)
+           (figwheel-sidecar.repl-api/start-figwheel!)
+           (figwheel-sidecar.repl-api/cljs-repl))")
 
   (add-hook 'clojure-mode-hook #'subword-mode)
   (add-hook 'clojure-mode-hook #'paredit-mode)
@@ -571,13 +575,13 @@ layers configuration. You are free to put any user code."
 
   (defun my-go-mode-hook ()
     ;; Setup GOPATH
-    (setq go-project-dir
-          (shell-command-to-string "gb env GB_PROJECT_DIR"))
-    (setenv "GOPATH"
-            (concat
-             (getenv "GOPATH") ":"
-             go-project-dir "/vendor:"
-             go-project-dir))
+;;    (setq go-project-dir
+;;         (shell-command-to-string "gb env GB_PROJECT_DIR"))
+;;    (setenv "GOPATH"
+;;            (concat
+;;             (getenv "GOPATH") ":"
+;;             go-project-dir "/vendor:"
+;;             go-project-dir))
     ;; Go Guru
     (go-guru-hl-identifier-mode))
 

@@ -1,0 +1,10 @@
+#!/bin/sh
+set -x #echo on
+
+BASEDIR=$(dirname "$0")
+ABCL_JAR=$BASEDIR/abcl.jar
+ABCL_CONTRIB=$BASEDIR/abcl-contrib.jar
+JAVA=$(which java)
+ABCL="$JAVA -server -Xrs -cp $ABCL_JAR:$ABCL_CONTRIB:$JNA org.armedbear.lisp.Main"
+exec $ABCL "$@"
+
