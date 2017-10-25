@@ -26,7 +26,7 @@ set PATH $PATH /Library/Frameworks/Mono.framework/Versions/Current/bin
 
 # Go
 export GOPATH=$HOME/go_workspace
-export GOROOT=/usr/local/Cellar/go/1.9/libexec
+export GOROOT=/usr/local/Cellar/go/1.9.1/libexec
 
 # exports
 set  PATH $PATH $GOPATH/bin
