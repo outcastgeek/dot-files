@@ -39,7 +39,7 @@ values."
      ;; Golang
      ;; https://github.com/syl20bnr/spacemacs/tree/master/layers/%2Blang/go
     (go :variables
-         go-use-gometalinter t
+         go-use-gometalinter nil
          gofmt-command "goimports"
          go-tab-width 4)
      graphviz
@@ -124,8 +124,8 @@ values."
                                       cython-mode
                                       flycheck-cython
                                       magit
-                                      inf-clojure
-                                      sayid
+                                      ;;inf-clojure
+                                      ;;sayid
                                       lfe-mode
                                       company-sourcekit
                                       quickrun
@@ -520,12 +520,12 @@ layers configuration. You are free to put any user code."
                  (put-clojure-indent (car pair)
                                      (car (last pair))))))
 
-  (require 'cider)
+;;  (require 'cider)
 ;;  (setq cider-cljs-lein-repl "(do (use 'figwheel-sidecar.repl-api) (start-figwheel!) (cljs-repl))")
-  (setq cider-cljs-lein-repl
-      "(do (require 'figwheel-sidecar.repl-api)
-           (figwheel-sidecar.repl-api/start-figwheel!)
-           (figwheel-sidecar.repl-api/cljs-repl))")
+;;  (setq cider-cljs-lein-repl
+;;      "(do (require 'figwheel-sidecar.repl-api)
+;;           (figwheel-sidecar.repl-api/start-figwheel!)
+;;           (figwheel-sidecar.repl-api/cljs-repl))")
 
   (add-hook 'clojure-mode-hook #'subword-mode)
   (add-hook 'clojure-mode-hook #'paredit-mode)
