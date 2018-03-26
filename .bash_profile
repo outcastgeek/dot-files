@@ -69,3 +69,5 @@ export ANDROID_HOME=$HOME/Library/Android/sdk
 export ANDROID_NDK=$HOME/Library/Android/sdk/ndk-bundle
 
 export PATH="/usr/local/sbin:$PATH"
+
+export PATH="$HOME/.cargo/bin:$PATH"
