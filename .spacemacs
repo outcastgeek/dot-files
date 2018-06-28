@@ -139,11 +139,11 @@ values."
                                           :repo "reasonml-editor/reason-mode"
                                           :fetcher github
                                           :files ("reason-mode.el" "refmt.el" "reason-indent.el" "reason-interaction.el")))
-                                      (polymode-mode
-                                        :location (recipe
-                                          :repo "vspinu/polymode"
-                                          :fetcher github
-                                          :files ("modes/*.el")))
+                                      ; (polymode-mode
+                                      ;   :location (recipe
+                                      ;     :repo "vspinu/polymode"
+                                      ;     :fetcher github
+                                      ;     :files ("*.el")))
                                       yasnippet
                                       ;;shen-mode
                                       (shen-elisp

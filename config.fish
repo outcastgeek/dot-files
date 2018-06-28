@@ -26,7 +26,7 @@ set PATH $PATH /Library/Frameworks/Mono.framework/Versions/Current/bin
 
 # Go
 export GOPATH=$HOME/go_workspace
-export GOROOT=/usr/local/Cellar/go/1.10.1/libexec
+export GOROOT=/usr/local/Cellar/go/1.10.3/libexec
 
 # exports
 set  PATH $PATH $GOPATH/bin
@@ -49,6 +49,9 @@ set PATH $PATH "/usr/local/opt/sqlite/bin"
 # Homebrew
 export HOMEBREW_GITHUB_API_TOKEN="9038d7f79f559f0716c310bc4b2b177b1b29e813"
 
+# llvm
+# set PATH $PATH /usr/local/opt/llvm@5/bin
+# set PATH $PATH /usr/local/opt/llvm/bin
 
 # added by Miniconda3 3.10.1 installer
 set PATH $PATH $HOME/miniconda3/bin

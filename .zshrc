@@ -69,7 +69,7 @@ export M2_HOME=/usr/local/Cellar/maven/3.3.9/libexec
 export GROOVY_HOME=/usr/local/opt/groovy/libexec
 
 # GOROOT
-export GOROOT=/usr/local/Cellar/go/1.10.1/libexec
+export GOROOT=/usr/local/Cellar/go/1.10.3/libexec
 
 # GOPATH
 export GOPATH=$HOME/go_workspace
@@ -88,6 +88,8 @@ source $HOME/.cargo/env
 
 # User configuration
 
+# export PATH="/usr/local/opt/llvm@5/bin:$PATH"
+# export PATH="/usr/local/opt/llvm/bin:$PATH"
 export PATH="$HOME/google-cloud-sdk/platform/go_appengine:$PATH"
 export PATH="$HOME/google-cloud-sdk/bin:$PATH"
 export PATH="$GOROOT/bin:$PATH"

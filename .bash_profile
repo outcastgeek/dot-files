@@ -13,7 +13,7 @@ source '/usr/local/etc/bash_completion.d'
 
 # Go
 export GOPATH=$HOME/go_workspace
-export GOROOT=/usr/local/Cellar/go/1.10.1/libexec
+export GOROOT=/usr/local/Cellar/go/1.10.3/libexec
 
 # Rust
 source $HOME/.cargo/env
@@ -27,6 +27,8 @@ export PATH=$HOME/.roswell/bin:$PATH
 export PATH=$HOME/.nimble/bin:$PATH
 export PATH=$HOME/.cargo/bin:$PATH
 export PATH=$HOME/.opam/system/bin:$PATH
+# export PATH=/usr/local/opt/llvm@5/bin:$PATH
+# export PATH=/usr/local/opt/llvm/bin:$PATH
 
 # SQLite
 export PATH="/usr/local/opt/sqlite/bin:$PATH"
