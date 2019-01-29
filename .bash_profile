@@ -13,7 +13,7 @@ source '/usr/local/etc/bash_completion.d'
 
 # Go
 export GOPATH=$HOME/go_workspace
-export GOROOT=/usr/local/Cellar/go/1.11.2/libexec
+export GOROOT=/usr/local/Cellar/go/1.11.5/libexec
 
 # Rust
 source $HOME/.cargo/env
@@ -73,3 +73,7 @@ export ANDROID_NDK=$HOME/Library/Android/sdk/ndk-bundle
 export PATH="/usr/local/sbin:$PATH"
 
 export PATH="$HOME/.cargo/bin:$PATH"
+
+#THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
+export SDKMAN_DIR="/Users/outcastgeek/.sdkman"
+[[ -s "/Users/outcastgeek/.sdkman/bin/sdkman-init.sh" ]] && source "/Users/outcastgeek/.sdkman/bin/sdkman-init.sh"

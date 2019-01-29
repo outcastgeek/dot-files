@@ -69,7 +69,7 @@ export M2_HOME=/usr/local/Cellar/maven/3.3.9/libexec
 export GROOVY_HOME=/usr/local/opt/groovy/libexec
 
 # GOROOT
-export GOROOT=/usr/local/Cellar/go/1.11.2/libexec
+export GOROOT=/usr/local/Cellar/go/1.11.5/libexec
 
 # GOPATH
 export GOPATH=$HOME/go_workspace
@@ -148,3 +148,7 @@ source $ZSH/oh-my-zsh.sh
 # tabtab source for sls package
 # uninstall by removing these lines or running `tabtab uninstall sls`
 [[ -f /Users/outcastgeek/.config/yarn/global/node_modules/tabtab/.completions/sls.zsh ]] && . /Users/outcastgeek/.config/yarn/global/node_modules/tabtab/.completions/sls.zsh
+
+#THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
+export SDKMAN_DIR="/Users/outcastgeek/.sdkman"
+[[ -s "/Users/outcastgeek/.sdkman/bin/sdkman-init.sh" ]] && source "/Users/outcastgeek/.sdkman/bin/sdkman-init.sh"
