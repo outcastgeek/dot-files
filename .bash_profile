@@ -9,7 +9,7 @@ export GROOVY_HOME=/usr/local/opt/groovy/libexec
 # added by Miniconda3 3.5.5 installer
 export PATH="$HOME/miniconda3/bin:$PATH"
 
-source '/usr/local/etc/bash_completion.d'
+# source '/usr/local/etc/bash_completion.d'
 
 # Go
 export GOPATH=$HOME/go_workspace
@@ -40,15 +40,15 @@ export PATH=$HOME/flutter/bin:$PATH
 export RUST_SRC_PATH=$HOME/.rustup/toolchains/stable-x86_64-apple-darwin/lib/rustlib/src/rust/src
 
 # Google Cloud SDK
-export GCLOUD_SDK=$HOME/google-cloud-sdk
-export PATH=$GCLOUD_SDK/bin:$PATH
-export PATH=$GCLOUD_SDK/platform/google_appengine
+# export GCLOUD_SDK=$HOME/google-cloud-sdk
+# export PATH=$GCLOUD_SDK/bin:$PATH
+# export PATH=$GCLOUD_SDK/platform/google_appengine
 
 # The next line updates PATH for the Google Cloud SDK.
-source '$HOME/google-cloud-sdk/path.bash.inc'
+# source '$HOME/google-cloud-sdk/path.bash.inc'
 
 # The next line enables bash completion for gcloud.
-source '$HOME/google-cloud-sdk/completion.bash.inc'
+# source '$HOME/google-cloud-sdk/completion.bash.inc'
 
 # Boot2Docker
 #export DOCKER_CERT_PATH=$HOME/.boot2docker/certs/boot2docker-vm
@@ -75,5 +75,5 @@ export PATH="/usr/local/sbin:$PATH"
 export PATH="$HOME/.cargo/bin:$PATH"
 
 #THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
-export SDKMAN_DIR="/Users/outcastgeek/.sdkman"
-[[ -s "/Users/outcastgeek/.sdkman/bin/sdkman-init.sh" ]] && source "/Users/outcastgeek/.sdkman/bin/sdkman-init.sh"
+export SDKMAN_DIR="$HOME/.sdkman"
+[[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"

@@ -140,15 +140,8 @@ source $ZSH/oh-my-zsh.sh
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
 # OPAM configuration
-. /Users/outcastgeek/.opam/opam-init/init.zsh > /dev/null 2> /dev/null || true
-
-# tabtab source for serverless package
-# uninstall by removing these lines or running `tabtab uninstall serverless`
-[[ -f /Users/outcastgeek/.config/yarn/global/node_modules/tabtab/.completions/serverless.zsh ]] && . /Users/outcastgeek/.config/yarn/global/node_modules/tabtab/.completions/serverless.zsh
-# tabtab source for sls package
-# uninstall by removing these lines or running `tabtab uninstall sls`
-[[ -f /Users/outcastgeek/.config/yarn/global/node_modules/tabtab/.completions/sls.zsh ]] && . /Users/outcastgeek/.config/yarn/global/node_modules/tabtab/.completions/sls.zsh
+. $HOME/.opam/opam-init/init.zsh > /dev/null 2> /dev/null || true
 
 #THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
-export SDKMAN_DIR="/Users/outcastgeek/.sdkman"
-[[ -s "/Users/outcastgeek/.sdkman/bin/sdkman-init.sh" ]] && source "/Users/outcastgeek/.sdkman/bin/sdkman-init.sh"
+export SDKMAN_DIR="$HOME/.sdkman"
+[[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"

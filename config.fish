@@ -33,9 +33,9 @@ set  PATH $PATH $GOPATH/bin
 set PATH $PATH $GOROOT/bin
 
 # Google Cloud SDK
-export GCLOUD_SDK=$HOME/google-cloud-sdk
-set PATH $PATH $GCLOUD_SDK/bin
-set PATH $PATH $GCLOUD_SDK/platform/google_appengine
+#export GCLOUD_SDK=$HOME/google-cloud-sdk
+#set PATH $PATH $GCLOUD_SDK/bin
+#set PATH $PATH $GCLOUD_SDK/platform/google_appengine
 
 # SQLite
 
