@@ -27,6 +27,7 @@ export PATH=$HOME/.roswell/bin:$PATH
 export PATH=$HOME/.nimble/bin:$PATH
 export PATH=$HOME/.cargo/bin:$PATH
 export PATH=$HOME/.opam/system/bin:$PATH
+export PATH=$HOME/vcpkg:$PATH
 # export PATH=/usr/local/opt/llvm@5/bin:$PATH
 # export PATH=/usr/local/opt/llvm/bin:$PATH
 

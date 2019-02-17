@@ -106,6 +106,7 @@ export PATH="$HOME/.nimble/bin:$PATH"
 export PATH="$HOME/.cargo/bin:$PATH"
 export PATH="$HOME/.cache/rebar3/bin:$PATH"
 export PATH="$HOME/.opam/system/bin:$PATH"
+export PATH="$HOME/vcpkg:$PATH"
 # export MANPATH="/usr/local/man:$MANPATH"
 
 source $ZSH/oh-my-zsh.sh

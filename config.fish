@@ -67,6 +67,9 @@ set PATH $PATH $HOME/.cache/rebar3/bin
 # OCaml
 set PATH $PATH $HOME/.opam/system/bin
 
+# VCPKG
+set PATH $PATH $HOME/vcpkg
+
 # Flutter
 set PATH $PATH $HOME/flutter/bin
 
