@@ -129,6 +129,7 @@ values."
                                       magit
                                       ;;inf-clojure
                                       ;;sayid
+                                      zig-mode
                                       lfe-mode
                                       company-sourcekit
                                       quickrun
