@@ -63,6 +63,7 @@ set PATH $PATH $HOME/.roswell/bin
 # set PATH $PATH $HOME/.nimble/bin
 set PATH $PATH $HOME/.cargo/bin
 set PATH $PATH $HOME/.cache/rebar3/bin
+set PATH=$PATH $HOME/.rvm/bin
 
 # OCaml
 set PATH $PATH $HOME/.opam/system/bin
