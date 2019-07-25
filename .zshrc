@@ -107,6 +107,7 @@ export PATH="$HOME/.cargo/bin:$PATH"
 export PATH="$HOME/.cache/rebar3/bin:$PATH"
 export PATH="$HOME/.opam/system/bin:$PATH"
 export PATH="$HOME/vcpkg:$PATH"
+export PATH="$PATH:$HOME/.rvm/bin"
 # export MANPATH="/usr/local/man:$MANPATH"
 
 source $ZSH/oh-my-zsh.sh
