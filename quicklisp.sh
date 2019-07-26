@@ -15,6 +15,13 @@ case $1 in
             --eval '(ql::without-prompting (dolist (imp `(:sbcl :ccl :abcl :ecl)) (ql:add-to-init-file imp)))'
         ;;
 
+    sbcl.linux)
+	curl -o sbcl-$2-x86-64-linux-binary.tar.bz2 https://versaweb.dl.sourceforge.net/project/sbcl/sbcl/$2/sbcl-$2-x86-64-linux-binary.tar.bz2
+        tar xjvf sbcl-$2-x86-64-linux-binary.tar.bz2
+        mv sbcl-$2-x86-64-linux sbcl
+        rm sbcl-$2-x86-64-linux-binary.tar.bz2
+        ;;
+
     clean)
         rm -rf ~/quicklisp* ~/.sbclrc ~/.ccl-init.lisp ~/.abclrc ~/.eclrc
         ;;
