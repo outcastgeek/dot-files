@@ -69,7 +69,7 @@ export M2_HOME=/usr/local/Cellar/maven/3.3.9/libexec
 export GROOVY_HOME=/usr/local/opt/groovy/libexec
 
 # GOROOT
-export GOROOT=/usr/local/Cellar/go/1.11.5/libexec
+export GOROOT=/usr/local/Cellar/go/1.13.7/libexec
 
 # GOPATH
 export GOPATH=$HOME/go_workspace
@@ -161,4 +161,3 @@ else
 fi
 unset __conda_setup
 # <<< conda initialize <<<
-
