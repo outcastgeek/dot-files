@@ -32,27 +32,26 @@ This function should only modify configuration layer settings."
 
    ;; List of configuration layers to load.
    dotspacemacs-configuration-layers
-   '(
+   '(html
      ;; ----------------------------------------------------------------
      ;; Example of useful layers you may want to use right away.
      ;; Uncomment some layer names and press `SPC f e R' (Vim style) or
      ;; `M-m f e R' (Emacs style) to install them.
      ;; ----------------------------------------------------------------
-     ;; auto-completion
-     ;; better-defaults
+     auto-completion
+     better-defaults
      emacs-lisp
-     ;; git
+     git
      helm
-     ;; lsp
-     ;; markdown
+     markdown
      multiple-cursors
      ;; org
-     ;; (shell :variables
-     ;;        shell-default-height 30
-     ;;        shell-default-position 'bottom)
-     ;; spell-checking
-     ;; syntax-checking
-     ;; version-control
+     (shell :variables
+       shell-default-height 30
+       shell-default-position 'bottom)
+     spell-checking
+     syntax-checking
+     version-control
      treemacs
      ;; Ansible
      ansible
@@ -67,18 +66,43 @@ This function should only modify configuration layer settings."
        c-c++-enable-auto-newline t)
      ;; Clojure
      (clojure :variables
-              clojure-toplevel-inside-comment-form t
-              cider-overlays-use-font-lock t
-              clojure-enable-linters 'clj-kondo
-              cider-preferred-build-tool 'clojure-cli)
+              clojure-enable-fancify-symbols t
+              clojure-backend 'cider
+              clojure-enable-linters '(clj-kondo joker)
+              clojure-enable-sayid t
+              clojure-enable-clj-refactor t
+
+              ; clojure-toplevel-inside-comment-form t
+              ; cider-overlays-use-font-lock t
+              ; cider-preferred-build-tool 'clojure-cli
+              )
      ;; CMake
      (cmake :variables
         cmake-backend 'lsp)
+     ;; CSharp
+     (csharp :variables
+       csharp-backend 'lsp)
      ;; Django
      django
+     ;; Docker
+     (docker :variables
+       docker-dockerfile-backend 'lsp)
      ;; ESS: statistical programming languages
      (ess :variables
        ess-r-backend 'lsp)
+     ;; FSharp
+     (fsharp :variables
+        fsharp-backend 'lsp)
+     ;; GraphQL
+     graphql
+     ;; Html
+     (html :variables
+       css-enable-lsp t
+       less-enable-lsp t
+       scss-enable-lsp t
+       html-enable-lsp t)
+     ;; Prettier
+     prettier
      ;; Javascript
      (javascript :variables
                  javascript-backend 'lsp
@@ -93,12 +117,21 @@ This function should only modify configuration layer settings."
      (go :variables
          go-backend 'lsp
          go-format-before-save t
-         gofmt-command "goimpots"
+         gofmt-command "goimports"
          go-use-golangci-lint t)
+     ;; LSP
+     (lsp :variables
+       lsp-headerline-breadcrumb-enable t
+       lsp-lens-enable t
+       lsp-ui-doc-include-signature t
+       lsp-ui-sideline-show-symbol t)
+     ;; Protobuf
+     protobuf
      ;; Python
      (python :variables
              python-backend 'lsp
-             python-lsp-server 'mspyls
+             python-lsp-server 'pyls
+             python-pipenv-activate t
              python-format-on-save t
              python-test-runner 'pytest)
      ;; Meson
@@ -113,6 +146,11 @@ This function should only modify configuration layer settings."
      ;; Rust
      (rust :variables
            rust-backend 'lsp)
+     ;; Sql
+     (sql :variables
+       sql-backend 'lsp
+       sql-lsp-sqls-workspace-config-path 'workspace
+       sql-auto-indent t)
      ;; Typescript
      (typescript :variables
                  typescript-backend 'lsp
@@ -585,3 +623,40 @@ before packages are loaded."
 
 ;; Do not write anything past this comment. This is where Emacs will
 ;; auto-generate custom variable definitions.
+(defun dotspacemacs/emacs-custom-settings ()
+  "Emacs custom settings.
+This is an auto-generated function, do not modify its content directly, use
+Emacs customize menu instead.
+This function is called at the very end of Spacemacs initialization."
+(custom-set-variables
+ ;; custom-set-variables was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(evil-want-Y-yank-to-eol nil)
+ '(hl-todo-keyword-faces
+   '(("TODO" . "#dc752f")
+     ("NEXT" . "#dc752f")
+     ("THEM" . "#2d9574")
+     ("PROG" . "#4f97d7")
+     ("OKAY" . "#4f97d7")
+     ("DONT" . "#f2241f")
+     ("FAIL" . "#f2241f")
+     ("DONE" . "#86dc2f")
+     ("NOTE" . "#b1951d")
+     ("KLUDGE" . "#b1951d")
+     ("HACK" . "#b1951d")
+     ("TEMP" . "#b1951d")
+     ("FIXME" . "#dc752f")
+     ("XXX+" . "#dc752f")
+     ("\\?\\?\\?+" . "#dc752f")))
+ '(package-selected-packages
+   '(web-mode tagedit slim-mode scss-mode sass-mode pug-mode impatient-mode htmlize helm-css-scss haml-mode emmet-mode counsel-css counsel swiper ivy company-web web-completion-data add-node-modules-path zig-mode zenburn-theme zen-and-art-theme yasnippet-snippets yapfify yaml-mode xterm-color ws-butler writeroom-mode winum white-sand-theme which-key web-beautify vterm volatile-highlights vi-tilde-fringe uuidgen use-package unfill undo-tree underwater-theme ujelly-theme twilight-theme twilight-bright-theme twilight-anti-bright-theme toxi-theme toml-mode toc-org tide terminal-here tao-theme tangotango-theme tango-plus-theme tango-2-theme symon symbol-overlay sunny-day-theme sublime-themes subatomic256-theme subatomic-theme string-inflection sql-indent sphinx-doc spaceline-all-the-icons spacegray-theme soothe-theme solarized-theme soft-stone-theme soft-morning-theme soft-charcoal-theme smyx-theme smeargle shell-pop seti-theme ron-mode rjsx-mode reverse-theme restart-emacs rebecca-theme rainbow-delimiters railscasts-theme racer pytest pyenv-mode py-isort purple-haze-theme protobuf-mode professional-theme prettier-js popwin pony-mode poetry planet-theme pippel pipenv pip-requirements phoenix-dark-pink-theme phoenix-dark-mono-theme persp-mode pcre2el password-generator paradox overseer organic-green-theme org-superstar open-junk-file omtose-phellack-theme omnisharp oldlace-theme occidental-theme obsidian-theme nodejs-repl noctilux-theme nim-mode neotree naquadah-theme nameless mwim mustang-theme multi-term move-text monokai-theme monochrome-theme molokai-theme moe-theme modus-vivendi-theme modus-operandi-theme mmm-mode minimal-theme meson-mode material-theme markdown-toc majapahit-theme magit-svn magit-section magit-gitflow madhat2r-theme macrostep lush-theme lsp-ui lsp-python-ms lsp-pyright lsp-origami lsp-julia lorem-ipsum livid-mode live-py-mode link-hint light-soap-theme kubernetes-tramp kubernetes-evil kaolin-themes julia-repl json-navigator js2-refactor js-doc jinja2-mode jbeans-theme jazz-theme ir-black-theme inkpot-theme indent-guide importmagic hybrid-mode hungry-delete hl-todo highlight-parentheses highlight-numbers highlight-indentation heroku-theme hemisu-theme helm-xref helm-themes helm-swoop helm-rtags helm-pydoc helm-purpose helm-projectile helm-org helm-mode-manager helm-make helm-lsp helm-ls-git helm-gitignore helm-git-grep helm-flx helm-descbinds helm-ctest helm-company helm-cider helm-c-yasnippet helm-ag hc-zenburn-theme gruvbox-theme gruber-darker-theme graphql-mode grandshell-theme gotham-theme google-translate google-c-style golden-ratio godoctor go-tag go-rename go-impl go-guru go-gen-test go-fill-struct go-eldoc gitignore-templates gitconfig-mode gitattributes-mode git-timemachine git-messenger git-link git-gutter-fringe+ gh-md gandalf-theme fuzzy fsharp-mode forge font-lock+ flyspell-correct-helm flycheck-ycmd flycheck-rust flycheck-rtags flycheck-pos-tip flycheck-package flycheck-nim flycheck-golangci-lint flycheck-elsa flycheck-clj-kondo flx-ido flatui-theme flatland-theme farmhouse-theme fancy-battery eziam-theme eyebrowse expand-region exotica-theme evil-visualstar evil-visual-mark-mode evil-unimpaired evil-tutor evil-textobj-line evil-surround evil-numbers evil-nerd-commenter evil-mc evil-matchit evil-magit evil-lisp-state evil-lion evil-indent-plus evil-iedit-state evil-goggles evil-exchange evil-escape evil-ediff evil-easymotion evil-cleverparens evil-args evil-anzu ess-R-data-view espresso-theme eshell-z eshell-prompt-extras esh-help emr elisp-slime-nav editorconfig dumb-jump dracula-theme dotenv-mode doom-themes dockerfile-mode docker django-theme disaster dired-quick-sort diminish devdocs define-word darktooth-theme darkokai-theme darkmine-theme darkburn-theme dap-mode dakrone-theme cython-mode cyberpunk-theme cpp-auto-include company-ycmd company-terraform company-rtags company-go company-c-headers company-ansible company-anaconda column-enforce-mode color-theme-sanityinc-tomorrow color-theme-sanityinc-solarized cmake-mode clues-theme clojure-snippets clean-aindent-mode cider-eval-sexp-fu chocolate-theme cherry-blossom-theme centered-cursor-mode ccls cargo busybee-theme bubbleberry-theme browse-at-remote blacken birds-of-paradise-plus-theme badwolf-theme auto-yasnippet auto-highlight-symbol auto-dictionary auto-compile apropospriate-theme anti-zenburn-theme ansible-doc ansible ample-zen-theme ample-theme alect-themes aggressive-indent afternoon-theme ace-link ace-jump-helm-line ac-ispell))
+ '(pdf-view-midnight-colors '("#b2b2b2" . "#292b2e")))
+(custom-set-faces
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ )
+)
