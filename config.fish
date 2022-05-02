@@ -9,6 +9,9 @@ source $OMF_PATH/init.fish
 
 # User configuration
 
+# Default Editor
+export EDITOR=vim
+
 export FISH_CONF=$HOME/.config/fish
 
 # Maven
@@ -17,6 +20,9 @@ export M2_HOME=/usr/local/Cellar/maven/3.3.9/libexec
 # Groovy
 export GROOVY_HOME=/usr/local/opt/groovy/libexec
 
+# Coursier
+set PATH $PATH $HOME/Library/Application Support/Coursier/bin
+
 # added by Miniconda3 3.5.5 installer
 source $FISH_CONF/conda.fish
 set PATH $PATH $HOME/miniconda3/bin
@@ -24,15 +30,25 @@ set PATH $PATH $HOME/miniconda3/bin
 # Mono
 set PATH $PATH /Library/Frameworks/Mono.framework/Versions/Current/bin
 
+# Ruby
+set PATH $PATH $HOME/.rbenv/bin
+eval "$(rbenv init -)"
+
+# Elixir Mix Executables
+set PATH $PATH:$HOME/.mix
+set PATH $$PATH:$HOME/.mix/escripts
+
 # Go
 export GOPATH=$HOME/go_workspace
-export GOROOT=/usr/local/Cellar/go/1.14/libexec
+export GOROOT=/usr/local/Cellar/go/1.18.1/libexec
 
 # exports
 set  PATH $PATH $GOPATH/bin
 set PATH $PATH $GOROOT/bin
 
 # Google Cloud SDK
+set -g -x "CLOUDSDK_PYTHON" "/usr/local/opt/python@3.8/libexec/bin/python"
+source "/usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/path.fish.inc"
 #export GCLOUD_SDK=$HOME/google-cloud-sdk
 #set PATH $PATH $GCLOUD_SDK/bin
 #set PATH $PATH $GCLOUD_SDK/platform/google_appengine
@@ -94,3 +110,5 @@ set PATH $PATH $HOME/Library/Android/sdk/tools
 set PATH $PATH $HOME/Library/Android/sdk/platform-tools
 set PATH $PATH $HOME/Library/Android/sdk/build-tools/25.0.0
 set -g fish_user_paths "/usr/local/sbin" $fish_user_paths
+
+>direnv hook fish | source

@@ -51,10 +51,19 @@ ZSH_THEME="robbyrussell"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git)
+plugins=(git vi-mode)
+
+# VI Mode
+# bindkey -v
+
+# Default Editor
+export EDITOR=vim
 
 # Mono
 export PATH=/Library/Frameworks/Mono.framework/Versions/Current/bin/:$PATH
+
+# Add .NET Core SDK tools
+export PATH="$HOME/.dotnet/tools:$PATH"
 
 # Dart
 export PATH=$HOME/flutter/bin:$PATH
@@ -68,11 +77,26 @@ export M2_HOME=/usr/local/Cellar/maven/3.3.9/libexec
 # Groovy
 export GROOVY_HOME=/usr/local/opt/groovy/libexec
 
-# GOROOT
-export GOROOT=/usr/local/Cellar/go/1.14/libexec
+# Coursier
+export PATH="$PATH:$HOME/Library/Application Support/Coursier/bin"
+# mkdir -p ~/.zsh/completion
+# cs --completions zsh > ~/.zsh/completion/cs
+# echo 'fpath=(~/.zsh/completion $fpath)' >> ~/.zshrc
+# echo 'autoload -Uz compinit ; compinit' >> ~/.zshrc
+fpath=(~/.zsh/completion $fpath)
+autoload -Uz compinit ; compinit
 
-# GOPATH
+# Elixir Mix Executables
+export PATH="$PATH:$HOME/.mix"
+export PATH="$PATH:$HOME/.mix/escripts"
+
+# Go
 export GOPATH=$HOME/go_workspace
+export GOROOT=/usr/local/Cellar/go/1.18.1/libexec
+
+# Ruby
+export PATH="$HOME/.rbenv/bin:$PATH"
+eval "$(rbenv init -)"
 
 # SQLite
 export PATH="/usr/local/opt/sqlite/bin:$PATH"
@@ -84,7 +108,7 @@ export ANDROID_HOME=$HOME/Library/Android/sdk
 export ANDROID_NDK=$HOME/Library/Android/sdk/ndk-bundle
 
 # Rust
-source $HOME/.cargo/env
+# source $HOME/.cargo/env
 
 # User configuration
 
@@ -161,3 +185,20 @@ else
 fi
 unset __conda_setup
 # <<< conda initialize <<<
+
+# Google Cloud SDK
+export CLOUDSDK_PYTHON="/usr/local/opt/python@3.8/libexec/bin/python"
+source "/usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/path.zsh.inc"
+source "/usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/completion.zsh.inc"
+# # The next line updates PATH for the Google Cloud SDK.
+# if [ -f '/Users/chiefkemist/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/chiefkemist/google-cloud-sdk/path.zsh.inc'; fi
+#
+# # The next line enables shell command completion for gcloud.
+# if [ -f '/Users/chiefkemist/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/chiefkemist/google-cloud-sdk/completion.zsh.inc'; fi
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "/usr/local/opt/nvm/nvm.sh" ] && . "/usr/local/opt/nvm/nvm.sh"  # This loads nvm
+[ -s "/usr/local/opt/nvm/etc/bash_completion.d/nvm" ] && . "/usr/local/opt/nvm/etc/bash_completion.d/nvm"  # This loads nvm bash_completion
+
+# DirEnvHook
+eval "$(direnv hook zsh)"
