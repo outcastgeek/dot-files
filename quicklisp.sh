@@ -12,7 +12,7 @@ case $1 in
             --load ~/quicklisp.lisp \
             --eval '(quicklisp-quickstart:install)' \
             --eval '(ql:quickload "quicklisp-slime-helper")' \
-            --eval '(ql::without-prompting (dolist (imp `(:sbcl :ccl :abcl :ecl)) (ql:add-to-init-file imp)))'
+            --eval '(ql::without-prompting (dolist (imp `(:sbcl :ccl :abcl :ecl :clasp)) (ql:add-to-init-file imp)))'
         ;;
 
     sbcl.linux)

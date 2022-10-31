@@ -59,6 +59,9 @@ plugins=(git vi-mode)
 # Default Editor
 export EDITOR=vim
 
+# Homebrew
+export HOMEBREW_GITHUB_API_TOKEN="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"
+
 # Mono
 export PATH=/Library/Frameworks/Mono.framework/Versions/Current/bin/:$PATH
 
@@ -92,7 +95,7 @@ export PATH="$PATH:$HOME/.mix/escripts"
 
 # Go
 export GOPATH=$HOME/go_workspace
-export GOROOT=/usr/local/Cellar/go/1.18.1/libexec
+export GOROOT=/usr/local/Cellar/go/1.19.2/libexec
 
 # Ruby
 export PATH="$HOME/.rbenv/bin:$PATH"
@@ -173,14 +176,14 @@ export SDKMAN_DIR="$HOME/.sdkman"
 
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!
-__conda_setup="$('$HOME/miniconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
+__conda_setup="$('/Users/chiefkemist/.pyenv/versions/miniconda3-4.7.12/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
 if [ $? -eq 0 ]; then
     eval "$__conda_setup"
 else
-    if [ -f "$HOME/miniconda3/etc/profile.d/conda.sh" ]; then
-        . "$HOME/miniconda3/etc/profile.d/conda.sh"
+    if [ -f "/Users/chiefkemist/.pyenv/versions/miniconda3-4.7.12/etc/profile.d/conda.sh" ]; then
+        . "/Users/chiefkemist/.pyenv/versions/miniconda3-4.7.12/etc/profile.d/conda.sh"
     else
-        export PATH="$HOME/miniconda3/bin:$PATH"
+        export PATH="/Users/chiefkemist/.pyenv/versions/miniconda3-4.7.12/bin:$PATH"
     fi
 fi
 unset __conda_setup
@@ -196,9 +199,45 @@ source "/usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/completion.
 # # The next line enables shell command completion for gcloud.
 # if [ -f '/Users/chiefkemist/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/chiefkemist/google-cloud-sdk/completion.zsh.inc'; fi
 
+export PYENV_ROOT="$HOME/.pyenv"
+command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"
+eval "$(pyenv init -)"
+
 export NVM_DIR="$HOME/.nvm"
 [ -s "/usr/local/opt/nvm/nvm.sh" ] && . "/usr/local/opt/nvm/nvm.sh"  # This loads nvm
 [ -s "/usr/local/opt/nvm/etc/bash_completion.d/nvm" ] && . "/usr/local/opt/nvm/etc/bash_completion.d/nvm"  # This loads nvm bash_completion
 
 # DirEnvHook
 eval "$(direnv hook zsh)"
+
+# bun completions
+[ -s "/Users/chiefkemist/.bun/_bun" ] && source "/Users/chiefkemist/.bun/_bun"
+
+# Bun
+export BUN_INSTALL="/Users/chiefkemist/.bun"
+export PATH="$BUN_INSTALL/bin:$PATH"
+
+# bun
+export BUN_INSTALL="$HOME/.bun"
+export PATH="$BUN_INSTALL/bin:$PATH"
+
+# Wasmer
+export WASMER_DIR="/Users/chiefkemist/.wasmer"
+[ -s "$WASMER_DIR/wasmer.sh" ] && source "$WASMER_DIR/wasmer.sh"
+
+# >>> mamba initialize >>>
+# !! Contents within this block are managed by 'mamba init' !!
+export MAMBA_EXE="/Users/chiefkemist/.local/bin/micromamba";
+export MAMBA_ROOT_PREFIX="/Users/chiefkemist/micromamba";
+__mamba_setup="$('/Users/chiefkemist/.local/bin/micromamba' shell hook --shell zsh --prefix '/Users/chiefkemist/micromamba' 2> /dev/null)"
+if [ $? -eq 0 ]; then
+    eval "$__mamba_setup"
+else
+    if [ -f "/Users/chiefkemist/micromamba/etc/profile.d/micromamba.sh" ]; then
+        . "/Users/chiefkemist/micromamba/etc/profile.d/micromamba.sh"
+    else
+        export  PATH="/Users/chiefkemist/micromamba/bin:$PATH"  # extra space after export prevents interference from conda init
+    fi
+fi
+unset __mamba_setup
+# <<< mamba initialize <<<

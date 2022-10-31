@@ -12,6 +12,9 @@ source $OMF_PATH/init.fish
 # Default Editor
 export EDITOR=vim
 
+# Homebrew
+export HOMEBREW_GITHUB_API_TOKEN="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"
+
 export FISH_CONF=$HOME/.config/fish
 
 # Maven
@@ -40,7 +43,7 @@ set PATH $$PATH:$HOME/.mix/escripts
 
 # Go
 export GOPATH=$HOME/go_workspace
-export GOROOT=/usr/local/Cellar/go/1.18.1/libexec
+export GOROOT=/usr/local/Cellar/go/1.19.2/libexec
 
 # exports
 set  PATH $PATH $GOPATH/bin
