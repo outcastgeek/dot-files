@@ -60,7 +60,8 @@ plugins=(git vi-mode)
 export EDITOR=vim
 
 # Homebrew
-export HOMEBREW_GITHUB_API_TOKEN="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"
+export HOMEBREW_GITHUB_API_TOKEN="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"
+#export HOMEBREW_GITHUB_API_TOKEN="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"
 
 # Mono
 export PATH=/Library/Frameworks/Mono.framework/Versions/Current/bin/:$PATH
@@ -94,8 +95,8 @@ export PATH="$PATH:$HOME/.mix"
 export PATH="$PATH:$HOME/.mix/escripts"
 
 # Go
-export GOPATH=$HOME/go_workspace
-export GOROOT=/usr/local/Cellar/go/1.19.2/libexec
+export GOPATH=$HOME/.local/share/go_workspace
+export GOROOT=/opt/homebrew/Cellar/go/1.19.3/libexec
 
 # Ruby
 export PATH="$HOME/.rbenv/bin:$PATH"
@@ -105,10 +106,12 @@ eval "$(rbenv init -)"
 export PATH="/usr/local/opt/sqlite/bin:$PATH"
 
 # Android HOME
-export ANDROID_HOME=$HOME/Library/Android/sdk
+export ANDROID_HOME=$HOME/.local/share/android_sdk
+#export ANDROID_HOME=$HOME/Library/Android/sdk
 
 # Android NDK
-export ANDROID_NDK=$HOME/Library/Android/sdk/ndk-bundle
+export ANDROID_NDK=$HOME/.local/share/android_sdk/ndk-bundle
+#export ANDROID_NDK=$HOME/Library/Android/sdk/ndk-bundle
 
 # Rust
 # source $HOME/.cargo/env
@@ -176,14 +179,14 @@ export SDKMAN_DIR="$HOME/.sdkman"
 
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!
-__conda_setup="$('/Users/chiefkemist/.pyenv/versions/miniconda3-4.7.12/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
+__conda_setup="$('$HOME/.pyenv/versions/miniconda3-4.7.12/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
 if [ $? -eq 0 ]; then
     eval "$__conda_setup"
 else
-    if [ -f "/Users/chiefkemist/.pyenv/versions/miniconda3-4.7.12/etc/profile.d/conda.sh" ]; then
-        . "/Users/chiefkemist/.pyenv/versions/miniconda3-4.7.12/etc/profile.d/conda.sh"
+    if [ -f "$HOME/.pyenv/versions/miniconda3-4.7.12/etc/profile.d/conda.sh" ]; then
+        . "$HOME/.pyenv/versions/miniconda3-4.7.12/etc/profile.d/conda.sh"
     else
-        export PATH="/Users/chiefkemist/.pyenv/versions/miniconda3-4.7.12/bin:$PATH"
+        export PATH="$HOME/.pyenv/versions/miniconda3-4.7.12/bin:$PATH"
     fi
 fi
 unset __conda_setup
@@ -191,30 +194,36 @@ unset __conda_setup
 
 # Google Cloud SDK
 export CLOUDSDK_PYTHON="/usr/local/opt/python@3.8/libexec/bin/python"
-source "/usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/path.zsh.inc"
-source "/usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/completion.zsh.inc"
+source "/opt/homebrew/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/path.zsh.inc"
+source "/opt/homebrew/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/completion.zsh.inc"
 # # The next line updates PATH for the Google Cloud SDK.
-# if [ -f '/Users/chiefkemist/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/chiefkemist/google-cloud-sdk/path.zsh.inc'; fi
+# if [ -f '$HOME/google-cloud-sdk/path.zsh.inc' ]; then . '$HOME/google-cloud-sdk/path.zsh.inc'; fi
 #
 # # The next line enables shell command completion for gcloud.
-# if [ -f '/Users/chiefkemist/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/chiefkemist/google-cloud-sdk/completion.zsh.inc'; fi
+# if [ -f '$HOME/google-cloud-sdk/completion.zsh.inc' ]; then . '$HOME/google-cloud-sdk/completion.zsh.inc'; fi
 
 export PYENV_ROOT="$HOME/.pyenv"
 command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"
 eval "$(pyenv init -)"
 
-export NVM_DIR="$HOME/.nvm"
-[ -s "/usr/local/opt/nvm/nvm.sh" ] && . "/usr/local/opt/nvm/nvm.sh"  # This loads nvm
-[ -s "/usr/local/opt/nvm/etc/bash_completion.d/nvm" ] && . "/usr/local/opt/nvm/etc/bash_completion.d/nvm"  # This loads nvm bash_completion
+# Node Version Managers
+eval "$(fnm env --use-on-cd)"
+
+export N_PREFIX=$HOME/.n
+export PATH=$N_PREFIX/bin:$PATH
+
+# export NVM_DIR="$HOME/.nvm"
+# [ -s "/usr/local/opt/nvm/nvm.sh" ] && . "/usr/local/opt/nvm/nvm.sh"  # This loads nvm
+# [ -s "/usr/local/opt/nvm/etc/bash_completion.d/nvm" ] && . "/usr/local/opt/nvm/etc/bash_completion.d/nvm"  # This loads nvm bash_completion
 
 # DirEnvHook
 eval "$(direnv hook zsh)"
 
 # bun completions
-[ -s "/Users/chiefkemist/.bun/_bun" ] && source "/Users/chiefkemist/.bun/_bun"
+[ -s "$HOME/.bun/_bun" ] && source "$HOME/.bun/_bun"
 
 # Bun
-export BUN_INSTALL="/Users/chiefkemist/.bun"
+export BUN_INSTALL="$HOME/.bun"
 export PATH="$BUN_INSTALL/bin:$PATH"
 
 # bun
@@ -222,21 +231,21 @@ export BUN_INSTALL="$HOME/.bun"
 export PATH="$BUN_INSTALL/bin:$PATH"
 
 # Wasmer
-export WASMER_DIR="/Users/chiefkemist/.wasmer"
+export WASMER_DIR="$HOME/.wasmer"
 [ -s "$WASMER_DIR/wasmer.sh" ] && source "$WASMER_DIR/wasmer.sh"
 
 # >>> mamba initialize >>>
 # !! Contents within this block are managed by 'mamba init' !!
-export MAMBA_EXE="/Users/chiefkemist/.local/bin/micromamba";
-export MAMBA_ROOT_PREFIX="/Users/chiefkemist/micromamba";
-__mamba_setup="$('/Users/chiefkemist/.local/bin/micromamba' shell hook --shell zsh --prefix '/Users/chiefkemist/micromamba' 2> /dev/null)"
+export MAMBA_EXE="$HOME/.local/bin/micromamba";
+export MAMBA_ROOT_PREFIX="$HOME/micromamba";
+__mamba_setup="$('$HOME/.local/bin/micromamba' shell hook --shell zsh --prefix '$HOME/micromamba' 2> /dev/null)"
 if [ $? -eq 0 ]; then
     eval "$__mamba_setup"
 else
-    if [ -f "/Users/chiefkemist/micromamba/etc/profile.d/micromamba.sh" ]; then
-        . "/Users/chiefkemist/micromamba/etc/profile.d/micromamba.sh"
+    if [ -f "$HOME/micromamba/etc/profile.d/micromamba.sh" ]; then
+        . "$HOME/micromamba/etc/profile.d/micromamba.sh"
     else
-        export  PATH="/Users/chiefkemist/micromamba/bin:$PATH"  # extra space after export prevents interference from conda init
+        export  PATH="$HOME/micromamba/bin:$PATH"  # extra space after export prevents interference from conda init
     fi
 fi
 unset __mamba_setup

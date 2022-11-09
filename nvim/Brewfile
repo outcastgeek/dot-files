@@ -1,0 +1,6 @@
+
+brew 'neovim'
+cask 'neovide'
+tap 'homebrew/cask-fonts'
+cask 'font-hack-nerd-font'
+
