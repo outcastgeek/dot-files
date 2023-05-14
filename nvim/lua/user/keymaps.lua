@@ -19,6 +19,17 @@ vim.g.maplocalleader = " "
 --   term_mode = "t",
 --   command_mode = "c",
 
+-- Disable Arrow Keys
+local keys = {'<Up>', '<Down>', '<Left>', '<Right>'}
+
+for _, key in pairs(keys) do
+  vim.api.nvim_exec('inoremap ' .. key .. ' <Nop>', false) -- Insert Mode
+  vim.api.nvim_exec('vnoremap ' .. key .. ' <Nop>', false) -- Visual Mode
+  vim.api.nvim_exec('nnoremap ' .. key .. ' <Nop>', false) -- Normal Mode
+  -- vim.api.nvim_exec('cnoremap ' .. key .. ' <Nop>', false) -- Command Mode
+  -- vim.api.nvim_exec('noremap ' .. key .. ' <Nop>', false) -- All Modes?
+end
+
 -- Normal --
 -- Better window navigation
 keymap("n", "<C-h>", "<C-w>h", opts)

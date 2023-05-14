@@ -17,6 +17,9 @@ export HOMEBREW_GITHUB_API_TOKEN="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"
 
 export FISH_CONF=$HOME/.config/fish
 
+# Containers
+alias docker=podman
+
 # Maven
 export M2_HOME=/usr/local/Cellar/maven/3.3.9/libexec
 
@@ -43,7 +46,13 @@ set PATH $$PATH:$HOME/.mix/escripts
 
 # Go
 export GOPATH=$HOME/go_workspace
-export GOROOT=/usr/local/Cellar/go/1.19.2/libexec
+export GOROOT=/usr/local/Cellar/go/1.20.3/libexec
+
+# Vcpkg
+export VCPKG_ROOT="$HOME/vcpkg"
+
+# Zig
+export TM_ZIG=`which zig`
 
 # exports
 set  PATH $PATH $GOPATH/bin
@@ -92,6 +101,7 @@ set PATH $PATH $HOME/vcpkg
 
 # Flutter
 set PATH $PATH $HOME/flutter/bin
+set PATH="$PATH $HOME/.pub-cache/bin
 
 # curl https://sh.rustup.rs -sSf | sh
 # rustup component add rust-src # Rust Source

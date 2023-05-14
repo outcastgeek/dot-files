@@ -7,6 +7,9 @@ set -o vi
 # Default Editor
 export EDITOR=vim
 
+# Containers
+alias docker=podman
+
 # Maven
 export M2_HOME=/usr/local/Cellar/maven/3.3.9/libexec
 
@@ -30,7 +33,13 @@ export PATH="$PATH:$HOME/.mix/escripts"
 
 # Go
 export GOPATH=$HOME/go_workspace
-export GOROOT=/usr/local/Cellar/go/1.19.2/libexec
+export GOROOT=/usr/local/Cellar/go/1.20.3/libexec
+
+# Zig
+export TM_ZIG=`which zig`
+
+# Vcpkg
+export VCPKG_ROOT="$HOME/vcpkg"
 
 # Ruby
 export PATH="$HOME/.rbenv/bin:$PATH"
@@ -55,23 +64,20 @@ export PATH="/usr/local/opt/sqlite/bin:$PATH"
 
 # Dart
 export PATH=$HOME/flutter/bin:$PATH
+export PATH="$PATH":"$HOME/.pub-cache/bin"
 
 # Rust Source
 export RUST_SRC_PATH=$HOME/.rustup/toolchains/stable-x86_64-apple-darwin/lib/rustlib/src/rust/src
 
 # Google Cloud SDK
 export CLOUDSDK_PYTHON="/usr/local/opt/python@3.8/libexec/bin/python"
-source "/usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/path.bash.inc"
-source "/usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/completion.bash.inc"
-# export GCLOUD_SDK=$HOME/google-cloud-sdk
-# export PATH=$GCLOUD_SDK/bin:$PATH
-# export PATH=$GCLOUD_SDK/platform/google_appengine
-
-# The next line updates PATH for the Google Cloud SDK.
-# source '$HOME/google-cloud-sdk/path.bash.inc'
-
-# The next line enables bash completion for gcloud.
-# source '$HOME/google-cloud-sdk/completion.bash.inc'
+source $HOME/.local/share/google-cloud-sdk/path.bash.inc
+source $HOME/.local/share/google-cloud-sdk/completion.bash.inc
+# # The next line updates PATH for the Google Cloud SDK.
+# if [ -f '$HOME/.local/share/google-cloud-sdk/path.bash.inc' ]; then . '$HOME/.local/share/google-cloud-sdk/path.bash.inc'; fi
+#
+# # The next line enables shell command completion for gcloud.
+# if [ -f '$HOME/.local/share/google-cloud-sdk/completion.bash.inc' ]; then . '$HOME/.local/share/google-cloud-sdk/completion.bash.inc'; fi
 
 # Boot2Docker
 #export DOCKER_CERT_PATH=$HOME/.boot2docker/certs/boot2docker-vm
@@ -119,4 +125,10 @@ export PATH=$N_PREFIX/bin:$PATH
 
 # DirEnvHook
 eval "$(direnv hook bash)"
+
+# 1Password
+source <(op completion bash)
+
 . "$HOME/.cargo/env"
+
+

@@ -70,6 +70,14 @@ return packer.startup(function(use)
     'vim-airline/vim-airline',
     'vim-airline/vim-airline-themes',
   }
+  use {
+    'projekt0n/github-nvim-theme', tag = 'v0.0.7',
+    config = function()
+      --require('github-theme').setup({
+
+      --})
+    end
+  }
   -- use {
   --   'windwp/windline.nvim',
   --   config = function()
@@ -84,12 +92,14 @@ return packer.startup(function(use)
   -- }
   -- LANGUAGES
   use {
+    'github/copilot.vim', -- AI Copilot
     'alaviss/nim.nvim', -- Nim
     'dart-lang/dart-vim-plugin', -- Dart
     'fatih/vim-go', -- Go
+    'jjo/vim-cue', -- Cue
     'JuliaEditorSupport/julia-vim', -- Julia
+    'OmniSharp/omnisharp-vim', -- CSharp
     'mfussenegger/nvim-jdtls', -- Java
-    'omnisharp/omnisharp-vim', -- C# and F#
     -- 'rust-lang/rust.vim', -- Rust
     'simrat39/rust-tools.nvim', -- Rust
     'udalov/kotlin-vim', -- Kotlin
@@ -117,6 +127,7 @@ return packer.startup(function(use)
   -- LSP
   use {
     'neovim/nvim-lspconfig', -- enable LSP
+    'nvim-lua/completion-nvim',
     'williamboman/nvim-lsp-installer', -- simple to use language server installer
     'tamago324/nlsp-settings.nvim', -- language server settings defined in json for
     -- 'williamboman/mason.nvim', -- simple to use language server installer
@@ -132,7 +143,19 @@ return packer.startup(function(use)
     'numToStr/Comment.nvim',
     'akinsho/bufferline.nvim',
     'windwp/nvim-autopairs',
-    'Olical/conjure',
+    'Olical/conjure', -- Conjure
+    'tpope/vim-dispatch', -- Conjure Support
+    'clojure-vim/vim-jack-in', -- Conjure Support
+    'radenling/vim-dispatch-neovim', -- Conjure Support for Neovim Only
+  }
+  use {
+    'phaazon/hop.nvim', -- Hop support
+    branch = 'V2', -- optional but strongly recommended
+    config = function()
+      -- you can configure Hop the way you like here; see :h hop-config
+      require'hop'.setup { keys = 'asdghklqwertyuiopzxcvbnmfj' } -- default
+      -- require'hop'.setup { keys = 'etovxqpdygfblzhckisuran' }
+    end
   }
   -- Debuggers
   use {

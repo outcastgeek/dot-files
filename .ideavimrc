@@ -1,0 +1,45 @@
+" Restrictions
+
+" Disable Arrow Keys
+" for key in ['<Up>', '<Down>', '<Left>', '<Right>' ]
+"  exec 'inoremap' key '<Nop>' "Insert Mode
+"  exec 'vnoremap' key '<Nop>' "Visual Mode
+"  "exec 'nnoremap' key '<Nop>' "Normal Mode
+"  "exec 'cnoremap' key '<Nop>' "Command Mode
+"  "exec 'noremap' key '<Nop>' "All Modes?
+" endfor
+
+"noremap <Up> <Nop>
+"noremap <Down> <Nop>
+"noremap <Left> <Nop>
+"noremap <Right> <Nop>
+
+" Settings
+set number relativenumber
+set ideajoin
+
+let mapleader=","
+
+" Plugins
+call plug#begin()
+
+Plug 'easymotion/vim-easymotion'
+Plug 'preservim/nerdtree'
+Plug 'terryma/vim-multiple-cursors'
+Plug 'unblevable/quick-scope'
+
+call plug#end()
+
+" Easy Motion
+set easymotion
+
+" NERDTree
+set NERDTree
+let g:NERDTreeMapActivateNode='1'
+let g:NERDTreeMapJumpParent='h'
+
+" Multiple Cursors
+set multiple-cursors
+
+" Quick Scope: Trigger a highlight in the appropriate direction when pressing these keys:
+let g:qs_highlight_on_keys = ['f', 'F', 't', 'T']

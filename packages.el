@@ -12,6 +12,9 @@
 (package! html-to-hiccup)
 (package! zig-mode)
 (package! meson-mode)
+(package! org-ai
+  :recipe (:host github :repo "rksm/org-ai"
+           :files ("*.el" "README.md" "snippets")))
 
 ;; To install a package directly from a remote git repo, you must specify a
 ;; `:recipe'. You'll find documentation on what `:recipe' accepts here:

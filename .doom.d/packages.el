@@ -8,10 +8,19 @@
 
 ;; To install SOME-PACKAGE from MELPA, ELPA or emacsmirror:
 ;(package! some-package)
-;;;;;;;; Clojure Extensions
+
 (package! html-to-hiccup)
 (package! zig-mode)
 (package! meson-mode)
+(package! copilot
+  :recipe (:host github :repo "zerolfx/copilot.el"
+           :files ("*.el" "dist")))
+(package! org-ai
+  :recipe (:host github :repo "rksm/org-ai"
+           :files ("*.el" "README.md" "snippets")))
+(package! mermaid-mode
+  :recipe (:host github :repo "abrochard/mermaid-mode"
+           :files ("*.el" "README.md")))
 
 ;; To install a package directly from a remote git repo, you must specify a
 ;; `:recipe'. You'll find documentation on what `:recipe' accepts here:

@@ -9,6 +9,7 @@ require "user.telescope"
 require "user.treesitter"
 require "user.utilities"
 require "user.debuggers"
+require "user.config"
 
 -- vim.cmd "colorscheme vorange"
 -- vim.cmd "colorscheme lunaperche"

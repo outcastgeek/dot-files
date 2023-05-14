@@ -1,0 +1,28 @@
+
+# Unix / Linux Shell Commands (Rust Replacements)
+#alias cat='bat --plain --wrap character'
+#alias l='exa -al'
+
+# Containers
+alias docker=podman
+alias dkp='podman ps'
+alias dkpp='podman pod ps'
+alias dkb='podman build -t'
+alias dkr='podman run --rm'
+alias dkrit='podman run --rm -it'
+
+# Utilities
+alias dea='direnv allow'
+alias dee='direnv edit'
+alias zshconfig="nvim ~/.zshrc"
+alias ohmyzsh="nvim ~/.oh-my-zsh"
+
+# JVM
+alias csja='cs java --available'
+alias csji='cs java --installed'
+alias csje='cs java --env --jvm'
+alias csjh='cs java-home --jvm'
+alias mvnct='mvn clean test'
+alias mvnpnt='mvn package -Dmaven.test.skip'
+
+

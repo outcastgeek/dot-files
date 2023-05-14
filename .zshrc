@@ -51,7 +51,7 @@ ZSH_THEME="robbyrussell"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git vi-mode)
+plugins=(git vi-mode globalias)
 
 # VI Mode
 # bindkey -v
@@ -71,6 +71,7 @@ export PATH="$HOME/.dotnet/tools:$PATH"
 
 # Dart
 export PATH=$HOME/flutter/bin:$PATH
+export PATH="$PATH":"$HOME/.pub-cache/bin"
 
 # Rust Source
 export RUST_SRC_PATH=$HOME/.rustup/toolchains/stable-x86_64-apple-darwin/lib/rustlib/src/rust/src
@@ -96,7 +97,13 @@ export PATH="$PATH:$HOME/.mix/escripts"
 
 # Go
 export GOPATH=$HOME/.local/share/go_workspace
-export GOROOT=/opt/homebrew/Cellar/go/1.19.3/libexec
+export GOROOT=/opt/homebrew/Cellar/go/1.20.4/libexec
+
+# Zig
+export TM_ZIG=`which zig`
+
+# Vcpkg
+export VCPKG_ROOT="$HOME/vcpkg"
 
 # Ruby
 export PATH="$HOME/.rbenv/bin:$PATH"
@@ -106,12 +113,12 @@ eval "$(rbenv init -)"
 export PATH="/usr/local/opt/sqlite/bin:$PATH"
 
 # Android HOME
-export ANDROID_HOME=$HOME/.local/share/android_sdk
-#export ANDROID_HOME=$HOME/Library/Android/sdk
+#export ANDROID_HOME=$HOME/.local/share/android_sdk
+export ANDROID_HOME=$HOME/Library/Android/sdk
 
 # Android NDK
-export ANDROID_NDK=$HOME/.local/share/android_sdk/ndk-bundle
-#export ANDROID_NDK=$HOME/Library/Android/sdk/ndk-bundle
+#export ANDROID_NDK=$HOME/.local/share/android_sdk/ndk-bundle
+export ANDROID_NDK=$HOME/Library/Android/sdk/ndk-bundle
 
 # Rust
 # source $HOME/.cargo/env
@@ -194,13 +201,13 @@ unset __conda_setup
 
 # Google Cloud SDK
 export CLOUDSDK_PYTHON="/usr/local/opt/python@3.8/libexec/bin/python"
-source "/opt/homebrew/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/path.zsh.inc"
-source "/opt/homebrew/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/completion.zsh.inc"
+source $HOME/.local/share/google-cloud-sdk/path.zsh.inc
+source $HOME/.local/share/google-cloud-sdk/completion.zsh.inc
 # # The next line updates PATH for the Google Cloud SDK.
-# if [ -f '$HOME/google-cloud-sdk/path.zsh.inc' ]; then . '$HOME/google-cloud-sdk/path.zsh.inc'; fi
+# if [ -f '$HOME/.local/share/google-cloud-sdk/path.zsh.inc' ]; then . '$HOME/.local/share/google-cloud-sdk/path.zsh.inc'; fi
 #
 # # The next line enables shell command completion for gcloud.
-# if [ -f '$HOME/google-cloud-sdk/completion.zsh.inc' ]; then . '$HOME/google-cloud-sdk/completion.zsh.inc'; fi
+# if [ -f '$HOME/.local/share/google-cloud-sdk/completion.zsh.inc' ]; then . '$HOME/.local/share/google-cloud-sdk/completion.zsh.inc'; fi
 
 export PYENV_ROOT="$HOME/.pyenv"
 command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"
@@ -218,6 +225,9 @@ export PATH=$N_PREFIX/bin:$PATH
 
 # DirEnvHook
 eval "$(direnv hook zsh)"
+
+# 1Password
+eval "$(op completion zsh)"; compdef _op op
 
 # bun completions
 [ -s "$HOME/.bun/_bun" ] && source "$HOME/.bun/_bun"
@@ -250,3 +260,16 @@ else
 fi
 unset __mamba_setup
 # <<< mamba initialize <<<
+
+# bun completions
+[ -s "$HOME/.bun/_bun" ] && source "$HOME/.bun/_bun"
+
+# The next line updates PATH for the Google Cloud SDK.
+if [ -f '$HOME/.local/share/google-cloud-sdk/path.zsh.inc' ]; then . '$HOME/.local/share/google-cloud-sdk/path.zsh.inc'; fi
+
+# The next line enables shell command completion for gcloud.
+if [ -f '$HOME/.local/share/google-cloud-sdk/completion.zsh.inc' ]; then . '$HOME/.local/share/google-cloud-sdk/completion.zsh.inc'; fi
+
+
+# bun completions
+[ -s "/Users/chiefkemist/.bun/_bun" ] && source "/Users/chiefkemist/.bun/_bun"
